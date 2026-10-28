@@ -1,0 +1,1184 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="ОГЭ для Лизы"><meta name="theme-color" content="#e23f86"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>ОГЭ для Лизы</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Nunito:wght@400;600;700;800&display=swap">
+<style>
+:root{
+  --bg:#fff4f8; --bg2:#ffe3ee; --card:#ffffff; --ink:#4b2a3c; --muted:#85596f;
+  --pink:#e23f86; --pink-soft:#ffd6e6; --lilac:#8e63e6; --lilac-soft:#ebe2ff;
+  --peach:#ff9c6b; --peach-soft:#ffe5d6; --good:#1f8f5a; --good-soft:#d9f5e7;
+  --bad:#b4415f; --bad-soft:#ffe0e8; --line:#f5cadc; --shadow:rgba(226,63,134,.16);
+  --btn:#d63384; --btn2:#8e63e6; --on-btn:#ffffff;
+  --display:'Comfortaa','Nunito',system-ui,sans-serif;
+  --body:'Nunito',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#241420; --bg2:#33192c; --card:#3a2233; --ink:#ffeaf3; --muted:#d8aec2;
+    --pink:#ff7bb0; --pink-soft:#5b2945; --lilac:#bba3ff; --lilac-soft:#3f3263;
+    --peach:#ffb38c; --peach-soft:#59372a; --good:#6fe0a6; --good-soft:#1f4a38;
+    --bad:#ff8fae; --bad-soft:#5a2536; --line:#573049; --shadow:rgba(0,0,0,.4);
+    --btn:#d9468f; --btn2:#7c56d8; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#241420; --bg2:#33192c; --card:#3a2233; --ink:#ffeaf3; --muted:#d8aec2;
+  --pink:#ff7bb0; --pink-soft:#5b2945; --lilac:#bba3ff; --lilac-soft:#3f3263;
+  --peach:#ffb38c; --peach-soft:#59372a; --good:#6fe0a6; --good-soft:#1f4a38;
+  --bad:#ff8fae; --bad-soft:#5a2536; --line:#573049; --shadow:rgba(0,0,0,.4);
+  --btn:#d9468f; --btn2:#7c56d8; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background-color:var(--bg);
+  background-image:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);
+  background-attachment:fixed;
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:16.5px;
+  line-height:1.55;
+  padding-block:18px 56px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+  min-height:100vh;
+}
+h1,h2,h3{font-family:var(--display);line-height:1.2;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--lilac);outline-offset:3px;border-radius:10px}
+#hearts{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+#hearts span{position:absolute;bottom:-50px;opacity:0;animation:floatUp linear infinite}
+@keyframes floatUp{
+  0%{transform:translate(0,0) rotate(0deg);opacity:0}
+  10%{opacity:.55}
+  50%{transform:translate(22px,-58vh) rotate(14deg)}
+  90%{opacity:.55}
+  100%{transform:translate(-14px,-118vh) rotate(-10deg);opacity:0}
+}
+.app{position:relative;z-index:1;max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+.app>*{min-width:0;animation:rise .5s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.app>*:nth-child(2){animation-delay:.05s}.app>*:nth-child(3){animation-delay:.1s}
+.app>*:nth-child(4){animation-delay:.15s}.app>*:nth-child(5){animation-delay:.2s}
+.app>*:nth-child(6){animation-delay:.25s}
+.card{background:var(--card);border:2px solid var(--line);border-radius:26px;padding:18px 18px 20px;box-shadow:0 10px 26px var(--shadow);display:flex;flex-direction:column;gap:10px;min-width:0}
+.card h3{font-size:1.08rem}
+.muted{color:var(--muted)}
+.eyebrow{font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--pink)}
+.hero{position:relative;text-align:center;padding:30px 18px 26px;border-radius:32px;border:2px solid var(--line);background:linear-gradient(135deg,var(--pink-soft),var(--lilac-soft) 60%,var(--peach-soft));box-shadow:0 14px 34px var(--shadow);overflow:hidden}
+.hero h1{font-size:clamp(1.9rem,8vw,2.7rem);font-weight:700;background:linear-gradient(90deg,var(--pink),var(--lilac),var(--peach),var(--pink));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:shine 6s linear infinite}
+@keyframes shine{to{background-position:300% 0}}
+.hero p{margin-top:8px;color:var(--ink);font-weight:700}
+.hero .deco{position:absolute;font-size:1.6rem;animation:bob 4s ease-in-out infinite}
+.hero .d1{left:14px;top:12px}.hero .d2{right:16px;top:20px;animation-delay:-1.2s}
+.hero .d3{left:22px;bottom:12px;animation-delay:-2.4s}.hero .d4{right:24px;bottom:14px;animation-delay:-.6s}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-9px) rotate(6deg)}}
+.beat{display:inline-block;animation:beat 1.4s ease-in-out infinite}
+@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.25)}30%{transform:scale(1)}45%{transform:scale(1.18)}}
+.btn{appearance:none;border:0;cursor:pointer;font:800 1rem var(--body);color:var(--on-btn);background:linear-gradient(120deg,var(--btn),var(--btn2));padding:13px 20px;border-radius:999px;box-shadow:0 8px 18px var(--shadow);min-height:48px;transition:transform .15s ease;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.btn:hover{transform:translateY(-2px) scale(1.02)}
+.btn:active{transform:scale(.97)}
+.btn.pulse{animation:pulse 2.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 8px 18px var(--shadow),0 0 0 0 rgba(226,63,134,.45)}50%{box-shadow:0 8px 18px var(--shadow),0 0 0 12px rgba(226,63,134,0)}}
+.btn.soft{background:var(--pink-soft);color:var(--ink);box-shadow:none}
+.btn.line{background:transparent;color:var(--ink);border:2px solid var(--line);box-shadow:none}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.support{background:linear-gradient(135deg,var(--lilac-soft),var(--pink-soft));text-align:center;align-items:center;gap:14px}
+.support .phrase{font-family:var(--display);font-weight:700;font-size:1.28rem;min-height:3.2em;display:flex;align-items:center;justify-content:center;text-wrap:balance}
+.phrase.swap{animation:pop .5s ease}
+@keyframes pop{0%{opacity:0;transform:scale(.9)}100%{opacity:1;transform:none}}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:560px){.two{grid-template-columns:1fr}}
+.big-num{font-family:var(--display);font-weight:700;font-size:3rem;line-height:1;color:var(--pink)}
+.bar{height:16px;border-radius:999px;background:var(--pink-soft);overflow:hidden}
+.bar>i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--pink),var(--lilac),var(--peach));background-size:200% 100%;animation:slide 3s linear infinite;transition:width .8s cubic-bezier(.2,.8,.2,1)}
+@keyframes slide{to{background-position:200% 0}}
+.bar.thin{height:10px}
+input[type=date]{font:700 1rem var(--body);color:var(--ink);background:var(--card);border:2px solid var(--line);border-radius:14px;padding:10px 12px;min-height:46px;max-width:100%}
+.subjects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:480px){.subjects{grid-template-columns:1fr}}
+.subj{text-decoration:none;background:var(--card);border:2px solid var(--line);border-radius:26px;padding:18px;display:flex;flex-direction:column;gap:8px;box-shadow:0 10px 26px var(--shadow);transition:transform .2s ease}
+.subj:hover{transform:translateY(-4px) rotate(-.6deg)}
+.subj .em{font-size:2.3rem;line-height:1}
+.subj h3{font-size:1.2rem}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{appearance:none;cursor:pointer;font:700 .95rem var(--body);color:var(--ink);background:var(--card);border:2px solid var(--line);border-radius:999px;padding:9px 14px;min-height:44px;display:inline-flex;gap:8px;align-items:center;transition:transform .15s ease}
+.chip:hover{transform:translateY(-2px)}
+.chip[aria-pressed="true"]{background:var(--pink-soft);border-color:var(--pink)}
+.chip small{font-weight:700;color:var(--muted)}
+.soon{font-size:.72rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;background:var(--lilac-soft);color:var(--ink);border-radius:999px;padding:2px 8px}
+.stickers{display:flex;flex-wrap:wrap;gap:10px}
+.sticker{width:58px;height:58px;border-radius:20px;display:grid;place-items:center;font-size:1.9rem;background:var(--peach-soft);border:2px dashed var(--line)}
+.sticker.on{background:var(--pink-soft);border-style:solid;animation:wiggle 3s ease-in-out infinite}
+.sticker.off{filter:grayscale(1);opacity:.5;font-size:1.3rem}
+@keyframes wiggle{0%,90%,100%{transform:rotate(0)}93%{transform:rotate(-8deg)}96%{transform:rotate(8deg)}}
+.timer-num{font-family:var(--display);font-weight:700;font-size:3.2rem;text-align:center;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+.back{display:inline-flex;align-self:flex-start;text-decoration:none;font-weight:800;color:var(--pink);padding:8px 12px 8px 4px;min-height:44px;align-items:center}
+.thead{display:flex;flex-direction:column;gap:6px;padding:4px 2px}
+.thead .big{font-size:2.6rem;line-height:1;animation:bob 4s ease-in-out infinite;align-self:flex-start}
+.thead h2{font-size:1.65rem}
+.topic-list{display:flex;flex-direction:column;gap:12px}
+.topic-row{display:flex;gap:14px;align-items:center;text-decoration:none;background:var(--card);border:2px solid var(--line);border-radius:22px;padding:14px 16px;box-shadow:0 8px 20px var(--shadow);transition:transform .2s ease;min-width:0}
+.topic-row:hover{transform:translateX(4px)}
+.topic-row .em{font-size:1.8rem;flex:none}
+.topic-row .tx{flex:1;min-width:0}
+.topic-row b{display:block;font-family:var(--display);font-size:1.02rem}
+.topic-row span.s{color:var(--muted);font-size:.92rem}
+.tick{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:2px solid var(--line);font-weight:800;color:transparent}
+.tick.on{background:var(--good-soft);border-color:var(--good);color:var(--good)}
+.facts{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:4px}
+.rule{background:var(--lilac-soft);border-color:transparent}
+.rule p+p,.rule ul{margin-top:6px}
+.rule ul{margin:6px 0 0;padding-left:1.2em}
+.formula{font-family:var(--display);font-weight:700;font-size:1.12rem;background:var(--card);border-radius:16px;padding:10px 14px;text-align:center;margin-top:6px;overflow-wrap:anywhere}
+.ex{background:var(--bg);border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:8px}
+.ex .q{font-weight:800;font-size:1.05rem;overflow-wrap:anywhere}
+.ex ol{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:5px}
+.ex ol li::marker{color:var(--pink);font-weight:800}
+details.ans{background:var(--bg);border-radius:18px;padding:12px 14px}
+details.ans summary{cursor:pointer;list-style:none;font-weight:800;display:flex;gap:10px;align-items:center;min-height:36px}
+details.ans summary::-webkit-details-marker{display:none}
+details.ans summary::after{content:"Показать ответ";margin-left:auto;font-size:.85rem;color:var(--on-btn);background:linear-gradient(120deg,var(--btn),var(--btn2));padding:6px 12px;border-radius:999px;white-space:nowrap}
+details.ans[open] summary::after{content:"Скрыть"}
+details.ans .a{margin-top:8px;color:var(--good);font-weight:800;overflow-wrap:anywhere}
+.warn{background:var(--peach-soft);border-color:transparent}
+.hack{background:var(--good-soft);border-color:transparent}
+.warn ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:5px}
+.qtext{font-weight:800;font-size:1.1rem;overflow-wrap:anywhere}
+.opts{display:grid;gap:10px}
+.opt{appearance:none;cursor:pointer;text-align:left;font:700 1rem var(--body);color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:16px;padding:12px 14px;min-height:48px;transition:transform .15s ease}
+.opt:hover:not([disabled]){transform:translateX(3px);border-color:var(--pink)}
+.opt.ok{background:var(--good-soft);border-color:var(--good);animation:pop .4s ease}
+.opt.bad{background:var(--bad-soft);border-color:var(--bad)}
+.opt[disabled]{cursor:default}
+.fb{font-weight:800;padding:10px 12px;border-radius:14px}
+.fb.ok{background:var(--good-soft);color:var(--good)}
+.fb.bad{background:var(--bad-soft);color:var(--bad)}
+.result{text-align:center;display:flex;flex-direction:column;gap:10px;align-items:center}
+.score{font-family:var(--display);font-size:2.6rem;font-weight:700;color:var(--pink)}
+.qstep{font-size:.85rem;font-weight:800;color:var(--muted)}
+.done-btn{align-self:stretch}
+.msg-card{background:linear-gradient(135deg,var(--peach-soft),var(--pink-soft));text-align:center;align-items:center}
+.msg-text{white-space:pre-line;font-weight:700;animation:pop .6s ease}
+.toast{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translate(-50%,40px);opacity:0;pointer-events:none;z-index:60;background:var(--card);color:var(--ink);border:2px solid var(--pink);border-radius:22px;padding:12px 18px;box-shadow:0 14px 34px var(--shadow);max-width:min(92vw,420px);width:max-content;text-align:center;font-weight:800;transition:opacity .35s ease,transform .35s ease}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.toast .st{font-size:2.4rem;display:block;line-height:1.1}
+.puff{position:fixed;pointer-events:none;z-index:70;font-size:20px}
+.foot{text-align:center;color:var(--muted);font-size:.88rem;padding:4px 0}
+a.chip{text-decoration:none}
+.chatlog{display:flex;flex-direction:column;gap:10px;max-height:52vh;min-height:140px;overflow-y:auto;padding:4px}
+.bubble{max-width:88%;padding:10px 14px;border-radius:18px;overflow-wrap:anywhere;animation:pop .3s ease}
+.bubble.me{align-self:flex-end;background:linear-gradient(120deg,var(--btn),var(--btn2));color:var(--on-btn);border-bottom-right-radius:6px}
+.bubble.bot{align-self:flex-start;background:var(--lilac-soft);border-bottom-left-radius:6px;white-space:pre-wrap}
+.chatform{display:flex;gap:10px;align-items:flex-end}
+textarea{font:600 1rem var(--body);color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:16px;padding:12px;width:100%;min-width:0;resize:vertical}
+.chatform textarea{flex:1}
+.stars{display:flex;flex-wrap:wrap;gap:4px}
+.star{appearance:none;border:0;background:none;font-size:2rem;cursor:pointer;min-width:44px;min-height:44px;transition:transform .15s ease}
+.star:hover{transform:scale(1.2) rotate(-6deg)}
+.note{font-size:.88rem;color:var(--muted)}
+.btn[disabled]{opacity:.55;cursor:default;transform:none}
+.flashcard{appearance:none;cursor:pointer;border:2px solid var(--line);border-radius:28px;min-height:230px;width:100%;padding:24px 20px;background:linear-gradient(135deg,var(--pink-soft),var(--lilac-soft));color:var(--ink);font-family:var(--body);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;box-shadow:0 10px 26px var(--shadow);transition:transform .2s ease}
+.flashcard:hover{transform:translateY(-3px)}
+.flashcard.flipped{background:linear-gradient(135deg,var(--peach-soft),var(--pink-soft))}
+.fc-tag{font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--pink)}
+.fc-text{font-family:var(--display);font-weight:700;font-size:1.3rem;line-height:1.35;overflow-wrap:anywhere;animation:pop .35s ease}
+.fc-hint{font-size:.85rem;color:var(--muted)}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .hero h1{-webkit-text-fill-color:currentColor;color:var(--pink);background:none}
+}
+</style>
+<div id="hearts" aria-hidden="true"></div>
+<main class="app" id="app"></main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+const MY_MESSAGE = "Лиза, это просто экзамен, а ты умная, добрая и упорная.\nДелай по маленькому шагу в день, и всё сложится.\nЯ в тебя верю и всегда рядом. 💗";
+const PHRASES = ["Ты умница, Лиза! 💖","Шаг за шагом, и всё получится 💕","Ошибки это нормально, так мы учимся 🌷","Я в тебя верю! ✨","Ты уже молодец, что открыла эту страничку 🌸","Даже 10 минут занятий уже победа 🏆","Ты сильнее, чем думаешь 💪","Не нужно знать всё сразу. Достаточно начать 🌱","У тебя получается лучше, чем вчера 🌈","Дыши глубоко. Ты справишься 🫶","Каждая решённая задача это шаг к большой цели 🎀","Ты не одна, я рядом 💞","Трудно значит растёшь 🌿","Ты очень старательная, это видно ✨","Отдыхать тоже важно. Это часть подготовки 🍵","Твой мозг сегодня стал чуточку умнее 🧠💗","Одна тема за раз. Остальное подождёт 🧸","Ты способна на большее, чем кажется 🦋","Я горжусь тобой! 🥹💖","Непонятное станет понятным, нужно только время ☁️","Не торопись. Главное не останавливаться 🐢💕","Сегодня ты чуть лучше, чем вчера 🌷","Пусть сложно, зато у тебя есть упорство 🌟","Спокойно. Это просто задачи, а ты умеешь их решать 🍓","Вера в себя начинается с маленькой победы ✨","Ты заслуживаешь хороших результатов 💝","Ты и без оценок самая лучшая 🌸","Всё получится, даже если сейчас кажется иначе 🌤️","Начни с самого лёгкого. Дальше пойдёт проще 🍀","Ты сияешь, когда стараешься ✨","Мне нравится, как ты стараешься 💗","Маленькие шаги тоже приводят к цели 👣","Не нужно быть идеальной. Просто делай, что можешь 🕊️","Твои усилия не пропадают зря 🌼","Ты просто чудо 🦄","Отличный день, чтобы стать на шаг ближе к цели 🌞","Пей воду, делай паузы и верь в себя 💧","Ты справлялась и с более сложным 🌈","Каждая ошибка подсказывает, что подтянуть 🔍💕","Ты прекрасно справляешься 🎀","Дальше будет легче, обещаю 🤍","Лиза, ты такая молодец! 🍓"];
+const PRAISE = ["Верно! Ты умница 💖","Правильно! Так держать ✨","Ура! Всё верно 🎉","Отлично, Лиза! 🌸","Вот это да, молодец! 🏆","Супер! Ты это поняла 💕"];
+const SOFT = ["Почти! Ничего страшного, так мы и учимся 🌷","Не получилось, не беда 💗","Ошибка это подсказка. Ты справишься 🤍","Бывает! В следующий раз получится ✨","Ничего, давай разберёмся вместе 🫶"];
+const STICKERS = [["🧸","Плюшевый мишка"],["🌸","Цветочек"],["🎀","Бантик"],["🦄","Единорожка"],["🍓","Клубничка"],["🌈","Радуга"]];
+const TOPICS_PER_STICKER = 3;
+const SUBJECTS = [
+{id:"math", name:"Математика", emoji:"📐", blurb:"Дроби, проценты, уравнения, геометрия",
+  exam:["25 заданий в двух частях: сначала короткие ответы, потом задачи с решением","Максимум 31 балл","Для тройки нужно 8 баллов, из них не меньше 2 по геометрии","На экзамен даётся 3 часа 55 минут","Актуальную демоверсию лучше сверить на fipi.ru"],
+  topics:[
+  {id:"math-fractions", emoji:"🍰", title:"Дроби", short:"Складываем, умножаем и делим дроби без страха",
+    explain:"Дробь показывает часть целого. Например, 1/2 это половина пиццы. Главное правило сложения: знаменатели (нижние числа) должны быть одинаковыми. Если они разные, сначала приводим к общему.",
+    rule:`<p>Сложение и вычитание: сначала общий знаменатель.</p><p>Умножение: верх на верх, низ на низ.</p><p>Деление: вторую дробь переверни и умножай.</p><div class="formula">a/b × c/d = (a·c)/(b·d)</div>`,
+    examples:[{q:"1/2 + 1/3",steps:["Знаменатели разные: 2 и 3. Общий знаменатель 6.","1/2 = 3/6, а 1/3 = 2/6.","Складываем верхние числа: 3/6 + 2/6 = 5/6."]},{q:"2/3 : 4/9",steps:["Деление заменяем умножением: вторую дробь переворачиваем.","Получаем 2/3 × 9/4.","Сокращаем: 2 и 4 делим на 2, 3 и 9 делим на 3. Остаётся 1/1 × 3/2.","Ответ: 3/2 = 1,5."]},{q:"0,3 + 1/4",steps:["Переведём 1/4 в десятичную дробь: 1 : 4 = 0,25.","Складываем: 0,3 + 0,25 = 0,55."]}],
+    practice:[{q:"3/4 − 1/6",a:"7/12 (общий знаменатель 12: 9/12 − 2/12)"},{q:"5/6 × 3/10",a:"1/4 (15/60 после сокращения)"},{q:"0,5 : 1/4",a:"2 (0,5 = 1/2, затем 1/2 × 4 = 2)"}],
+    mistakes:["Складывают знаменатели: 1/2 + 1/3 это НЕ 2/5.","Забывают сократить дробь в конце.","При делении переворачивают первую дробь, а надо вторую."],
+    hack:"Сначала сокращай крест-накрест, а потом умножай. Числа станут маленькими, и ошибиться труднее.",
+    quiz:[{q:"1/2 + 1/4 = ?",o:["2/6","3/4","1/8","2/4"],a:1},{q:"2/5 × 5/6 = ?",o:["7/11","1/3","2/3","1/6"],a:1},{q:"1/2 : 1/4 = ?",o:["1/8","1/2","2","4"],a:2}]},
+  {id:"math-percent", emoji:"🏷️", title:"Проценты", short:"Скидки, доли и «на сколько процентов»",
+    explain:"Один процент это одна сотая часть. Значит, 50% это половина, 25% это четверть, 10% это одна десятая. Чтобы найти процент от числа, умножаем число на дробь: 15% = 0,15.",
+    rule:`<div class="formula">p% от A = A · p / 100</div><p>Сколько процентов B составляет от A: делим B на A и умножаем на 100%.</p><p>Увеличить на p%: A · (1 + p/100). Уменьшить: A · (1 − p/100).</p>`,
+    examples:[{q:"Найти 15% от 200",steps:["15% = 0,15.","200 · 0,15 = 30."]},{q:"Сколько процентов составляет 12 от 60?",steps:["Делим: 12 : 60 = 0,2.","Умножаем на 100%: 0,2 · 100% = 20%."]},{q:"Товар стоил 800 ₽ и подорожал на 10%",steps:["Новая цена = 100% + 10% = 110% от старой.","800 · 1,1 = 880 ₽."]}],
+    practice:[{q:"25% от 80",a:"20"},{q:"Скидка 20% на товар за 500 ₽. Новая цена?",a:"400 ₽ (500 · 0,8)"},{q:"Сколько процентов составляет 9 от 36?",a:"25%"}],
+    mistakes:["«На 10%» путают с «в 10 раз». Это совсем разное!","Если цена выросла на 10%, а потом упала на 10%, прежней она НЕ станет."],
+    hack:"10% это делим на 10. 50% это делим на 2. 25% это делим на 4. Остальные собираем из них.",
+    quiz:[{q:"10% от 350 это сколько?",o:["3,5","35","350","3500"],a:1},{q:"Сколько процентов составляет 20 от 50?",o:["20%","25%","40%","50%"],a:2},{q:"Куртка стоила 2000 ₽, скидка 15%. Новая цена?",o:["1700 ₽","1800 ₽","300 ₽","2300 ₽"],a:0}]},
+  {id:"math-linear", emoji:"⚖️", title:"Линейные уравнения", short:"Уравнение это весы, и мы держим их ровно",
+    explain:"Представь весы: что сделал с одной чашей, то сделай и с другой, и они останутся ровными. Наша цель: оставить x одного. Числа с x собираем слева, обычные числа справа.",
+    rule:`<p>Переносим слагаемое через «=» и меняем его знак.</p><p>В конце делим обе части на число перед x.</p><div class="formula">ax + b = c → x = (c − b) / a</div>`,
+    examples:[{q:"3x + 5 = 20",steps:["Переносим 5 вправо со знаком минус: 3x = 20 − 5.","3x = 15.","Делим на 3: x = 5."]},{q:"2(x − 4) = 10",steps:["Делим обе части на 2: x − 4 = 5.","Переносим 4: x = 5 + 4.","x = 9."]},{q:"5x − 7 = 2x + 11",steps:["Иксы влево, числа вправо: 5x − 2x = 11 + 7.","3x = 18.","x = 6."]}],
+    practice:[{q:"4x − 9 = 15",a:"x = 6"},{q:"6x + 4 = 2x + 16",a:"x = 3 (4x = 12)"},{q:"3(x + 2) = 24",a:"x = 6 (x + 2 = 8)"}],
+    mistakes:["Перенесли число, а знак не поменяли.","Раскрыли скобку только у первого слагаемого."],
+    hack:"Проверка спасает: подставь ответ вместо x. Если обе части равны, всё верно.",
+    quiz:[{q:"2x + 6 = 14. Чему равен x?",o:["3","4","5","10"],a:1},{q:"x : 3 = 5. Чему равен x?",o:["15","8","5/3","2"],a:0},{q:"5x − 2 = 3x + 8. Чему равен x?",o:["3","4","5","6"],a:2}]},
+  {id:"math-quadratic", emoji:"🧩", title:"Квадратные уравнения", short:"Дискриминант: три шага и готово",
+    explain:"Квадратное уравнение выглядит так: ax² + bx + c = 0. Чтобы его решить, считаем дискриминант D. Он подсказывает, сколько у уравнения корней.",
+    rule:`<div class="formula">D = b² − 4ac</div><ul><li>D больше 0: два корня, x = (−b ± √D) / 2a</li><li>D равен 0: один корень, x = −b / 2a</li><li>D меньше 0: корней нет</li></ul>`,
+    examples:[{q:"x² − 5x + 6 = 0",steps:["Выписываем: a = 1, b = −5, c = 6.","D = 25 − 24 = 1.","x = (5 ± 1) / 2.","Корни: 3 и 2."]},{q:"x² − 9 = 0 (неполное)",steps:["Переносим 9: x² = 9.","x = 3 или x = −3."]},{q:"x² − 4x = 0 (неполное)",steps:["Выносим x за скобку: x(x − 4) = 0.","Произведение равно нулю, когда один множитель равен нулю.","Корни: 0 и 4."]}],
+    practice:[{q:"x² − 7x + 10 = 0",a:"Корни 5 и 2 (D = 9)"},{q:"x² + 6x + 9 = 0",a:"x = −3 (D = 0, корень один)"},{q:"x² − 16 = 0",a:"x = 4 и x = −4"}],
+    mistakes:["Теряют минус у b: если b = −5, то −b = 5.","Находят один корень, а второй забывают.","Неполные уравнения решают через дискриминант, хотя можно проще."],
+    hack:"Если нет c или b, дискриминант не нужен. Выноси x за скобку или переноси число.",
+    quiz:[{q:"Корни уравнения x² − 3x + 2 = 0",o:["1 и 2","−1 и −2","1 и −2","3 и 2"],a:0},{q:"Чему равен дискриминант уравнения x² + 2x − 3 = 0?",o:["4","8","16","−8"],a:2},{q:"Решите x² = 25",o:["5","−5","5 и −5","25"],a:2}]},
+  {id:"math-pythagoras", emoji:"📏", title:"Теорема Пифагора", short:"Главная формула прямоугольного треугольника",
+    explain:"У прямоугольного треугольника есть прямой угол. Две стороны рядом с ним называются катетами. Самая длинная сторона напротив прямого угла называется гипотенузой.",
+    rule:`<div class="formula">a² + b² = c²</div><p>a и b это катеты, c это гипотенуза.</p><p>Красивые тройки, которые стоит запомнить: 3-4-5, 5-12-13, 6-8-10, 8-15-17.</p>`,
+    examples:[{q:"Катеты 3 и 4. Найти гипотенузу",steps:["c² = 3² + 4² = 9 + 16 = 25.","c = 5."]},{q:"Гипотенуза 13, катет 5. Найти второй катет",steps:["b² = 13² − 5² = 169 − 25 = 144.","b = 12."]},{q:"Катеты 6 и 8",steps:["c² = 36 + 64 = 100.","c = 10."]}],
+    practice:[{q:"Катеты 5 и 12. Гипотенуза?",a:"13"},{q:"Гипотенуза 10, катет 6. Второй катет?",a:"8 (100 − 36 = 64)"},{q:"Лестница длиной 2,5 м стоит в 1,5 м от стены. На какой высоте она касается стены?",a:"2 м (6,25 − 2,25 = 4)"}],
+    mistakes:["Складывают стороны, а не их квадраты.","Путают гипотенузу с катетом. Гипотенуза всегда самая длинная.","Ищут катет, но складывают вместо вычитания."],
+    hack:"Ищем гипотенузу, то квадраты складываем. Ищем катет, то из квадрата гипотенузы вычитаем.",
+    quiz:[{q:"Катеты 6 и 8. Чему равна гипотенуза?",o:["10","12","14","100"],a:0},{q:"Гипотенуза 5, катет 3. Второй катет?",o:["2","4","8","34"],a:1},{q:"Катеты 9 и 12. Гипотенуза?",o:["15","21","18","225"],a:0}]},
+  {id:"math-area", emoji:"🔷", title:"Площади фигур", short:"Квадрат, треугольник, трапеция и друзья",
+    explain:"Площадь показывает, сколько места занимает фигура. Высота это всегда отрезок под прямым углом к основанию, а не просто боковая сторона.",
+    rule:`<ul><li>Прямоугольник: S = a · b</li><li>Параллелограмм: S = a · h</li><li>Треугольник: S = ½ · a · h</li><li>Трапеция: S = (a + b) / 2 · h</li></ul>`,
+    examples:[{q:"Треугольник: основание 10, высота 6",steps:["S = ½ · 10 · 6.","S = 30."]},{q:"Трапеция: основания 4 и 10, высота 5",steps:["Полусумма оснований: (4 + 10) / 2 = 7.","S = 7 · 5 = 35."]},{q:"Параллелограмм: сторона 7, высота к ней 3",steps:["S = 7 · 3 = 21."]}],
+    practice:[{q:"Прямоугольник 8 × 5",a:"40"},{q:"Треугольник: основание 12, высота 5",a:"30"},{q:"Трапеция: основания 6 и 8, высота 4",a:"28"}],
+    mistakes:["Забывают ½ у треугольника.","Берут боковую сторону вместо высоты."],
+    hack:"Высота образует прямой угол с основанием. Ищи на рисунке значок прямого угла.",
+    quiz:[{q:"Треугольник: основание 8, высота 3. Площадь?",o:["24","12","11","6"],a:1},{q:"Трапеция: основания 3 и 7, высота 4. Площадь?",o:["20","40","28","10"],a:0},{q:"Параллелограмм: сторона 9, высота 2. Площадь?",o:["11","18","9","36"],a:1}]},
+  {id:"math-prob", emoji:"🎲", title:"Вероятность", short:"Какой шанс, что повезёт",
+    explain:"Вероятность показывает, насколько событие возможно. Она всегда от 0 до 1. Ноль означает, что так не бывает, единица означает, что так будет точно.",
+    rule:`<div class="formula">P = нужные исходы / все исходы</div><p>В ответе ОГЭ обычно просят десятичную дробь, например 0,4.</p>`,
+    examples:[{q:"Кубик. Какова вероятность выпадения 5?",steps:["Всего граней 6, нужная одна.","P = 1/6."]},{q:"В коробке 3 красных и 7 синих шаров. Достаём красный",steps:["Всего шаров: 3 + 7 = 10.","Красных 3, значит P = 3/10 = 0,3."]},{q:"Из 25 пирожков 5 с вишней. Берём наугад",steps:["P = 5/25.","Сократим на 5: 1/5 = 0,2."]}],
+    practice:[{q:"Монета. Вероятность выпадения орла?",a:"0,5"},{q:"В классе 25 человек, 10 девочек. Случайно выбирают одного. Вероятность, что это девочка?",a:"0,4 (10/25)"},{q:"Кубик. Вероятность чётного числа?",a:"0,5 (3 чётных из 6)"}],
+    mistakes:["Делят нужные исходы на ненужные, а надо на ВСЕ.","Ответ получился больше 1. Так не бывает, ищи ошибку."],
+    hack:"Сначала посчитай ВСЕХ, потом нужных. Дробь запиши, и только потом переводи в десятичную.",
+    quiz:[{q:"Кубик: выпало число больше 4. Вероятность?",o:["1/6","1/3","1/2","2/3"],a:1},{q:"В пакете 4 яблока и 6 груш. Вероятность достать яблоко?",o:["0,6","0,4","0,5","4"],a:1},{q:"Какой вероятности не бывает?",o:["0,5","1","1,5","0"],a:2}]}
+  ]},
+{id:"russian", name:"Русский язык", emoji:"📖", blurb:"Правила, запятые, сочинение",
+  exam:["Три части: изложение, тест с короткими ответами и сочинение","Максимум 33 балла","Для тройки нужно набрать 15 баллов, и часть из них за грамотность","На экзамен даётся 3 часа 55 минут","Актуальные критерии лучше сверить на fipi.ru"],
+  topics:[
+  {id:"rus-vowels", emoji:"🌱", title:"Безударные гласные в корне", short:"О или А? Е или И? Проверяем ударением",
+    explain:"Безударную гласную мы слышим плохо. Поэтому делаем её ударной: меняем форму слова или подбираем родственное слово. Где слышно ясно, там и пишем.",
+    rule:`<p>Проверочное слово должно быть однокоренным.</p><ul><li>вода → воды (О)</li><li>трава → травы (А)</li><li>весна → вёсны (Е)</li></ul><p>Если проверить нельзя, это словарное слово. Его просто запоминаем: корова, молоко, собака.</p>`,
+    examples:[{q:"в..да",steps:["Меняем форму: воды.","Под ударением слышно О.","Пишем: вода."]},{q:"з..лёный",steps:["Подбираем родственное слово: зелень.","Под ударением Е.","Пишем: зелёный."]},{q:"с..сна",steps:["Меняем число: сосны.","Под ударением О.","Пишем: сосна."]}],
+    practice:[{q:"л..са (много чего в лесу)",a:"леса (лес, пишем Е)"},{q:"п..ля",a:"поля (поле, пишем О)"},{q:"г..ра",a:"гора (горы, пишем О)"}],
+    mistakes:["Берут проверочное слово с другим корнем.","Пытаются проверить словарное слово. Оно проверяется только словарём.","Меняют слово так, что гласная всё равно остаётся без ударения."],
+    hack:"Не получается проверить? Скорее всего это словарное слово. Открой словарь или запиши его в «копилку».",
+    quiz:[{q:"Какая буква пропущена: с..дой (седина)?",o:["е","и","я","а"],a:0},{q:"Какое слово НЕЛЬЗЯ проверить ударением?",o:["вода","молоко","трава","леса"],a:1},{q:"Какая буква пропущена: л..сной (лес)?",o:["е","и","я","а"],a:0}]},
+  {id:"rus-nn", emoji:"🧶", title:"Н и НН в прилагательных", short:"Одна или две буквы Н",
+    explain:"Количество Н зависит от суффикса. Смотрим, какой суффикс в слове, и вспоминаем правило. Есть три исключения, их надо выучить.",
+    rule:`<ul><li>НН в суффиксах -ЕНН-, -ОНН-: утренний, станционный.</li><li>Одна Н в суффиксах -АН-, -ЯН-, -ИН-: кожаный, глиняный, утиный.</li></ul><p>Исключения (пишем НН): СТЕКЛЯННЫЙ, ОЛОВЯННЫЙ, ДЕРЕВЯННЫЙ.</p>`,
+    examples:[{q:"кожа → кожа_ый",steps:["Суффикс -АН-.","Одна Н.","Пишем: кожаный."]},{q:"утро → утр_ий",steps:["Суффикс -ЕНН-.","Две Н.","Пишем: утренний."]},{q:"стекло → стекл_ый",steps:["Это исключение.","Пишем две Н: стеклянный."]}],
+    practice:[{q:"серебро → серебря_ый",a:"серебряный (одна Н)"},{q:"осень → осен_ий",a:"осенний (две Н)"},{q:"дерево → деревя_ый",a:"деревянный (исключение, две Н)"}],
+    mistakes:["Пишут «кожанный», хотя суффикс -АН-.","Забывают исключения про стекло, олово и дерево."],
+    hack:"Запомни кусочек: СТЕКЛО, ОЛОВО, ДЕРЕВО это всегда две Н. Остальное по суффиксу.",
+    quiz:[{q:"Как пишется: глиня_ый?",o:["Н","НН"],a:0},{q:"Как пишется: стекля_ый?",o:["Н","НН"],a:1},{q:"Как пишется: осен_ий?",o:["Н","НН"],a:1}]},
+  {id:"rus-ne", emoji:"🚫", title:"НЕ с разными частями речи", short:"Слитно или раздельно",
+    explain:"Частица НЕ пишется то слитно, то раздельно. Помогает простой приём: если можно заменить слово похожим без НЕ, чаще всего пишем слитно.",
+    rule:`<ul><li>С глаголами НЕ пишется раздельно: не бегать, не знает.</li><li>Слитно, если слова без НЕ не бывает: неряха, ненавидеть.</li><li>Слитно, если можно заменить синонимом: невысокий = низкий.</li><li>Раздельно при противопоставлении «а»: не высокий, а низкий.</li></ul>`,
+    examples:[{q:"Она (не)радуется победе",steps:["Это глагол.","С глаголами НЕ отдельно.","Пишем: не радуется."]},{q:"Вот (не)ряха",steps:["Слова «ряха» в таком смысле нет.","Пишем слитно: неряха."]},{q:"Дом (не)высокий, а низкий",steps:["Есть противопоставление «а».","Пишем раздельно: не высокий."]}],
+    practice:[{q:"Он (не)добрый (злой)",a:"недобрый (слитно, заменяется «злой»)"},{q:"Это (не)друг, а враг",a:"не друг (раздельно, есть «а»)"},{q:"Я (не)хочу идти",a:"не хочу (глагол, раздельно)"}],
+    mistakes:["Пишут слитно с глаголами.","Не замечают слово «а», которое требует раздельного написания."],
+    hack:"Попробуй убрать НЕ. Если слово без НЕ звучит странно, пиши слитно.",
+    quiz:[{q:"Он (не)знает ответ",o:["слитно","раздельно"],a:1},{q:"Вот такая (не)ряха!",o:["слитно","раздельно"],a:0},{q:"Задача (не)трудная, а лёгкая",o:["слитно","раздельно"],a:1}]},
+  {id:"rus-uniform", emoji:"🍎", title:"Запятые при однородных членах", short:"Перечисления и союзы А, НО",
+    explain:"Однородные члены отвечают на один вопрос и относятся к одному слову. Например: «купила яблоки, груши и сливы». Между ними ставим запятые, но не всегда.",
+    rule:`<ul><li>Перечисление: запятая между словами, перед одиночным «и» не ставим.</li><li>Перед «а», «но», «зато» запятая нужна всегда.</li><li>Повторяющееся «и…и»: запятая между частями.</li></ul>`,
+    examples:[{q:"Я люблю чай кофе и какао",steps:["Это перечисление.","Запятые между первыми словами, перед одиночным «и» нет.","Я люблю чай, кофе и какао."]},{q:"Он умный но ленивый",steps:["Есть противопоставление, союз «но».","Перед «но» запятая.","Он умный, но ленивый."]},{q:"И дождь и ветер мешали идти",steps:["«И…и» повторяется.","Запятая между частями.","И дождь, и ветер мешали идти."]}],
+    practice:[{q:"Мы купили хлеб молоко и сыр",a:"Мы купили хлеб, молоко и сыр."},{q:"Она не пела а танцевала",a:"Она не пела, а танцевала."},{q:"На столе лежали и книги и тетради",a:"На столе лежали и книги, и тетради."}],
+    mistakes:["Ставят запятую перед одиночным «и».","Забывают запятую перед «а» и «но»."],
+    hack:"Одно «и» между однородными словами, запятая не нужна. Два «и» подряд, запятая между ними.",
+    quiz:[{q:"Я люблю зиму_ и лето. Нужна запятая?",o:["да","нет"],a:1},{q:"Он хотел_ но не мог. Нужна запятая?",o:["да","нет"],a:0},{q:"И дождь_ и ветер мешали идти. Нужна запятая?",o:["да","нет"],a:0}]},
+  {id:"rus-complex", emoji:"🔗", title:"Запятые в сложном предложении", short:"Считаем основы и ставим запятые",
+    explain:"Грамматическая основа это подлежащее и сказуемое. В сложном предложении основ две и больше. Простая подсказка: сколько основ, столько частей, и между ними запятая.",
+    rule:`<ul><li>Между частями сложного предложения ставим запятую.</li><li>Запятая нужна перед союзами «что», «чтобы», «потому что», «если», «когда», «который».</li><li>Если основа одна (однородные сказуемые), запятая не нужна: «Мы шли и пели».</li></ul>`,
+    examples:[{q:"Я знаю что ты справишься",steps:["Основы: «я знаю» и «ты справишься». Две.","Перед «что» запятая.","Я знаю, что ты справишься."]},{q:"Книга которую я читаю очень интересная",steps:["Придаточная часть «которую я читаю» стоит внутри.","Её выделяем запятыми с двух сторон.","Книга, которую я читаю, очень интересная."]},{q:"Мы шли и пели",steps:["Основа одна: «мы шли и пели».","Запятая не нужна."]}],
+    practice:[{q:"Я думаю что всё получится",a:"Я думаю, что всё получится."},{q:"Если ты постараешься у тебя получится",a:"Если ты постараешься, у тебя получится."},{q:"Когда пошёл дождь мы ушли домой",a:"Когда пошёл дождь, мы ушли домой."}],
+    mistakes:["Не ставят запятую перед «что» и «который».","Ставят запятую между однородными сказуемыми одной основы."],
+    hack:"Подчеркни в предложении все подлежащие и сказуемые. Основ две, значит запятая между частями.",
+    quiz:[{q:"Лиза знает_ что справится. Нужна запятая?",o:["да","нет"],a:0},{q:"Мы шли_ и пели. Нужна запятая?",o:["да","нет"],a:1},{q:"Когда пошёл дождь_ мы ушли домой. Нужна запятая?",o:["да","нет"],a:0}]},
+  {id:"rus-essay", emoji:"✍️", title:"Изложение и сочинение", short:"Как писать, когда не знаешь, с чего начать",
+    explain:"Изложение это пересказ текста своими словами и покороче. Сочинение это твоё рассуждение по тексту. Обе работы можно написать по понятному плану, как рецепт.",
+    rule:`<p>Изложение: слушаем текст → отмечаем главное по абзацам → убираем детали → пишем коротко. Объём не меньше 70 слов.</p><p>Сочинение-рассуждение:</p><ul><li>Тезис: главная мысль.</li><li>Пример из текста.</li><li>Пример из жизни или книги.</li><li>Вывод.</li></ul>`,
+    examples:[{q:"Как сжать предложение для изложения",steps:["Берём: «Вчера мы с мамой долго ходили по большому магазину и выбирали красивую тёплую куртку».","Убираем детали: вчера, долго, большому, красивую, тёплую.","Остаётся: «Мы с мамой выбирали куртку»."]},{q:"Как построить рассуждение «Что такое доброта?»",steps:["Тезис: доброта это умение помогать без награды.","Пример из текста: герой помог незнакомому человеку.","Пример из жизни: я помогла подруге с учёбой.","Вывод: добрый человек делает мир теплее."]}],
+    practice:[{q:"Придумай тезис на тему «Что такое дружба?»",a:"Например: дружба это когда человек поддерживает тебя и в радости, и в беде."},{q:"Сожми: «Мы долго шли по тёмному лесу и наконец увидели маленький домик».",a:"Например: мы шли по лесу и увидели домик."}],
+    mistakes:["Переписывают текст слово в слово, а нужно сжимать.","Забывают вывод в конце.","Пишут слишком мало, меньше нужного объёма."],
+    hack:"Пока слушаешь, записывай не предложения, а ключевые слова. Потом из них легко собрать текст.",
+    quiz:[{q:"Сколько слов минимум нужно в изложении?",o:["30","70","200","500"],a:1},{q:"С чего начинается сочинение-рассуждение?",o:["С вывода","С тезиса","С примера","С цитаты"],a:1},{q:"Что делаем с мелкими деталями при сжатии текста?",o:["Переписываем все","Убираем","Добавляем новые","Меняем смысл"],a:1}]}
+  ]}
+];
+const Q = (q,o,a) => ({q,o,a});
+const L = (id,emoji,title,short,explain,rule,hack,quiz) => ({id,emoji,title,short,explain,rule,hack,quiz});
+const LESSON_SUBJECTS = [
+{ id:"soc", name:"Обществознание", emoji:"🏛️", lesson:true, blurb:"Общество, права, экономика",
+  intro:"Короткие уроки по обществознанию. Читай по одному, потом проходи мини-тест.",
+  topics:[
+  L("soc-1","🏛️","Сферы жизни общества","Экономика, политика, люди и культура",
+   "Общество это люди, которые живут вместе и связаны друг с другом. Жизнь общества делят на четыре части, их называют сферами. Они связаны: например, от экономики зависит, сколько школ можно построить.",
+   `<ul><li><b>Экономическая:</b> производство, деньги, торговля, работа.</li><li><b>Политическая:</b> власть, государство, выборы, законы.</li><li><b>Социальная:</b> семья, группы людей, нации.</li><li><b>Духовная:</b> наука, культура, образование, религия, мораль.</li></ul>`,
+   "Спроси себя: это про деньги, про власть, про людей или про идеи и культуру? Так сразу поймёшь сферу.",
+   [Q("Театр, наука и образование относятся к сфере...",["экономической","политической","духовной","социальной"],2),Q("Выборы и государственная власть это сфера...",["политическая","духовная","экономическая","природная"],0),Q("Производство и торговля относятся к сфере...",["духовной","экономической","политической","семейной"],1)]),
+  L("soc-2","⚖️","Права и обязанности","Конституция и что нужно знать о себе",
+   "Главный закон страны это Конституция РФ, её приняли 12 декабря 1993 года. У каждого человека есть права (что он может делать) и обязанности (что он должен делать). Права и обязанности всегда идут вместе.",
+   `<ul><li><b>Права:</b> на жизнь, на образование, на отдых, на медицинскую помощь, на свободу слова.</li><li><b>Обязанности:</b> соблюдать законы, платить налоги, защищать Отечество, получить основное общее образование.</li><li>Паспорт выдают в 14 лет.</li></ul>`,
+   "Право можно использовать, а обязанность нужно выполнять. Так легко различать их в тестах.",
+   [Q("Как называется основной закон России?",["Устав","Конституция","Кодекс","Манифест"],1),Q("Платить налоги это...",["право","обязанность","желание","привилегия"],1),Q("В каком возрасте гражданин РФ получает паспорт?",["12 лет","14 лет","16 лет","18 лет"],1)]),
+  L("soc-3","💰","Экономика","Потребности, спрос, налоги, инфляция",
+   "Желаний у людей много, а денег и ресурсов мало. Поэтому приходится выбирать. Если товар нужен многим (высокий спрос), а его мало (малое предложение), цена растёт. Если товара много, а покупателей мало, цена падает.",
+   `<ul><li><b>Спрос:</b> сколько людей хотят купить.</li><li><b>Предложение:</b> сколько товара продают.</li><li><b>Налог:</b> обязательный платёж государству.</li><li><b>Инфляция:</b> цены растут, и на те же деньги можно купить меньше.</li></ul>`,
+   "Запомни простую связку: спрос растёт, цена растёт. Предложение растёт, цена падает.",
+   [Q("Как называется рост цен, при котором деньги обесцениваются?",["Дефицит","Инфляция","Налог","Спрос"],1),Q("Обязательный платёж, который люди платят государству, это...",["штраф","налог","кредит","взнос"],1),Q("Если спрос на товар вырос, а товара не прибавилось, цена обычно...",["вырастет","упадёт","не изменится","исчезнет"],0)])
+  ]},
+{ id:"inf", name:"Информатика", emoji:"💻", lesson:true, blurb:"Двоичная система, байты, логика",
+  intro:"Короткие уроки по информатике. Читай по одному, потом проходи мини-тест.",
+  topics:[
+  L("inf-1","🔢","Двоичная система","Как компьютер считает нулями и единицами",
+   "Мы считаем десятками, а компьютер двойками: у него только цифры 0 и 1. В двоичном числе каждая цифра это степень двойки: справа налево 1, 2, 4, 8, 16. Чтобы перевести в обычное число, складываем те степени, где стоит единица.",
+   `<div class="formula">1011₂ = 8 + 0 + 2 + 1 = 11</div><p>Чтобы перевести обычное число в двоичное, делим его на 2 и записываем остатки снизу вверх.</p>`,
+   "Выпиши степени двойки над цифрами: 8 4 2 1. Это самый быстрый способ.",
+   [Q("Чему равно число 101₂ в обычной системе?",["3","5","6","10"],1),Q("Чему равно число 1010₂?",["8","9","10","12"],2),Q("Как записывается число 6 в двоичной системе?",["101","110","111","011"],1)]),
+  L("inf-2","💾","Единицы информации","Бит, байт и килобайт",
+   "Самая маленькая единица информации это бит (0 или 1). 8 бит составляют 1 байт, и в байте помещается один символ. Чтобы найти объём текста, умножаем число символов на вес одного символа.",
+   `<ul><li>1 байт = 8 бит</li><li>1 Кбайт = 1024 байта</li><li>1 Мбайт = 1024 Кбайта</li></ul><div class="formula">I = K · i</div><p>I это объём, K число символов, i вес одного символа.</p>`,
+   "Переходя к большим единицам, делим на 1024. Переходя к меньшим, умножаем.",
+   [Q("Сколько бит в одном байте?",["4","8","10","16"],1),Q("Текст из 100 символов, каждый символ весит 1 байт. Какой объём?",["100 бит","100 байт","800 байт","1 Кбайт"],1),Q("Сколько байт в 2 Кбайтах?",["200","1024","2048","2000"],2)]),
+  L("inf-3","🧠","Алгоритмы и логика","Ветвления, циклы и И, ИЛИ, НЕ",
+   "Алгоритм это точная инструкция, как получить результат. Бывают три вида: линейный (шаги по порядку), ветвление (если... то... иначе) и цикл (повтори несколько раз). В логике есть три главных слова: И, ИЛИ, НЕ.",
+   `<ul><li><b>И:</b> истинно, только если истинно и первое, и второе.</li><li><b>ИЛИ:</b> истинно, если истинно хотя бы одно.</li><li><b>НЕ:</b> меняет истину на ложь и наоборот.</li></ul>`,
+   "«И» строгое: нужны оба. «ИЛИ» доброе: хватит одного.",
+   [Q("Что получится: ЛОЖЬ И ИСТИНА?",["истина","ложь"],1),Q("Что получится: ЛОЖЬ ИЛИ ИСТИНА?",["истина","ложь"],0),Q("Как называется повторение действий несколько раз в алгоритме?",["ветвление","цикл","условие","линейный алгоритм"],1)])
+  ]},
+{ id:"bio", name:"Биология", emoji:"🌿", lesson:true, blurb:"Клетка, организм человека, гены",
+  intro:"Короткие уроки по биологии. Читай по одному, потом проходи мини-тест.",
+  topics:[
+  L("bio-1","🔬","Клетка","Из чего состоит живое",
+   "Клетка это маленький «кирпичик» всего живого. У каждой части клетки своя работа, как у сотрудников в мастерской. Растения отличаются от животных тем, что у них есть хлоропласты и прочная клеточная стенка.",
+   `<ul><li><b>Ядро:</b> хранит ДНК, то есть наследственную информацию.</li><li><b>Митохондрии:</b> дают клетке энергию.</li><li><b>Рибосомы:</b> делают белки.</li><li><b>Мембрана:</b> граница клетки, решает, что впускать.</li><li><b>Хлоропласты:</b> фотосинтез (только у растений).</li></ul>`,
+   "Митохондрии это «электростанции», ядро это «главный офис».",
+   [Q("Какая часть клетки даёт ей энергию?",["ядро","митохондрии","мембрана","рибосомы"],1),Q("Где происходит фотосинтез?",["в ядре","в рибосомах","в хлоропластах","в митохондриях"],2),Q("Где хранится наследственная информация клетки?",["в ядре","в мембране","в цитоплазме","в рибосомах"],0)]),
+  L("bio-2","🫀","Организм человека","Системы органов и кровь",
+   "Органы человека работают командами, их называют системами. Пищеварительная перерабатывает еду, дыхательная даёт кислород, кровеносная разносит всё по телу, нервная управляет. Кровь состоит из клеток, и у каждого вида своя задача.",
+   `<ul><li><b>Эритроциты:</b> переносят кислород.</li><li><b>Лейкоциты:</b> защищают от микробов.</li><li><b>Тромбоциты:</b> помогают крови свёртываться.</li></ul><p>Сердце и сосуды относятся к кровеносной системе.</p>`,
+   "Эритроциты красные, и их больше всего. Лейкоциты защитники, как «лейка» и «лекарь».",
+   [Q("Какие клетки крови переносят кислород?",["лейкоциты","тромбоциты","эритроциты","нейроны"],2),Q("Какие клетки крови защищают организм от микробов?",["лейкоциты","эритроциты","тромбоциты","мышечные"],0),Q("К какой системе органов относится сердце?",["пищеварительной","дыхательной","кровеносной","выделительной"],2)]),
+  L("bio-3","🧬","Наследственность","Гены, ДНК и признаки",
+   "ДНК это длинная «книга» с записью наших признаков: цвет глаз, форма носа, группа крови. Отдельные страницы этой книги называются генами. Ребёнок получает половину генов от мамы и половину от папы. У человека 46 хромосом, это 23 пары.",
+   `<ul><li><b>Доминантный признак</b> проявляется, если он есть хотя бы от одного родителя.</li><li><b>Рецессивный признак</b> проявляется, только если достался от обоих родителей.</li></ul>`,
+   "Доминантный «главный», он подавляет рецессивный.",
+   [Q("Сколько хромосом в клетках человека (кроме половых клеток)?",["23","32","46","64"],2),Q("Как называется признак, который подавляет другой?",["рецессивный","доминантный","случайный","слабый"],1),Q("Какое вещество хранит наследственную информацию?",["белок","жир","ДНК","глюкоза"],2)])
+  ]},
+{ id:"geo", name:"География", emoji:"🌍", lesson:true, blurb:"Материки, климат, Россия",
+  intro:"Короткие уроки по географии. Читай по одному, потом проходи мини-тест.",
+  topics:[
+  L("geo-1","🗺️","Материки и океаны","Что где находится",
+   "На Земле шесть материков и четыре океана (так считают в школьном курсе). Больше всего суши занимает Евразия, а больше всего воды у Тихого океана. Самый холодный материк это Антарктида.",
+   `<ul><li><b>Материки:</b> Евразия, Африка, Северная Америка, Южная Америка, Антарктида, Австралия.</li><li><b>Океаны:</b> Тихий, Атлантический, Индийский, Северный Ледовитый.</li></ul>`,
+   "Тихий самый большой и самый глубокий океан, а Северный Ледовитый самый маленький.",
+   [Q("Какой материк самый большой?",["Африка","Евразия","Австралия","Антарктида"],1),Q("Какой океан самый большой?",["Атлантический","Индийский","Тихий","Северный Ледовитый"],2),Q("Сколько материков на Земле?",["4","5","6","7"],2)]),
+  L("geo-2","🌦️","Климат","Почему в одних местах жарко, а в других холодно",
+   "Погода это то, что за окном сегодня. Климат это погода, которая бывает в месте много лет подряд. На климат влияет широта (чем дальше от экватора, тем холоднее), высота над морем (в горах холоднее) и близость океана (у моря мягче).",
+   `<ul><li>Ближе к экватору: жарче.</li><li>Ближе к полюсам: холоднее.</li><li>Выше в горах: холоднее.</li><li>Рядом с морем: зимы теплее, лето прохладнее.</li></ul>`,
+   "Три слова для запоминания: широта, высота, океан.",
+   [Q("Чем дальше от экватора, тем климат обычно...",["жарче","холоднее","не меняется","суше"],1),Q("Многолетний режим погоды в месте называется...",["сезон","климат","прогноз","ветер"],1),Q("Как меняется температура, когда поднимаешься в горы?",["растёт","падает","не меняется","скачет"],1)]),
+  L("geo-3","🇷🇺","Россия на карте","Главные факты о нашей стране",
+   "Россия самая большая страна мира по площади. Она так велика, что в ней 11 часовых зон: пока на Дальнем Востоке уже вечер, в Москве ещё день. Столица Москва.",
+   `<ul><li><b>Самое глубокое озеро:</b> Байкал.</li><li><b>Высшая точка России:</b> гора Эльбрус.</li><li><b>Самая длинная река Европы:</b> Волга.</li><li><b>Часовых зон:</b> 11.</li></ul>`,
+   "Байкал, Эльбрус, Волга: три слова, которые чаще всего встречаются в тестах.",
+   [Q("Какое озеро самое глубокое в России и мире?",["Ладожское","Байкал","Онежское","Селигер"],1),Q("Какая гора самая высокая в России?",["Эльбрус","Белуха","Народная","Казбек"],0),Q("Сколько часовых зон в России?",["5","7","11","15"],2)])
+  ]},
+{ id:"hist", name:"История", emoji:"🏺", lesson:true, blurb:"Россия в XIX и начале XX века",
+  intro:"Короткие уроки по истории России. Читай по одному, потом проходи мини-тест.",
+  topics:[
+  L("hist-1","⚔️","Война 1812 года","Наполеон, Бородино и Кутузов",
+   "В июне 1812 года французская армия Наполеона вошла в Россию. Главным сражением стало Бородинское 26 августа (7 сентября по новому стилю). Русской армией командовал Кутузов. Москву пришлось оставить, но армия Наполеона зимой ослабла и отступила. В 1814 году русские войска вошли в Париж.",
+   `<ul><li><b>Год начала:</b> 1812.</li><li><b>Главнокомандующий:</b> М. И. Кутузов.</li><li><b>Главное сражение:</b> Бородино.</li><li><b>Император России:</b> Александр I.</li></ul>`,
+   "1812, Бородино, Кутузов, Александр I. Эти четыре слова собирают весь урок.",
+   [Q("В каком году началась Отечественная война с Наполеоном?",["1805","1812","1825","1854"],1),Q("Кто командовал русской армией в Бородинском сражении?",["Суворов","Кутузов","Ушаков","Брусилов"],1),Q("Какой российский император правил в 1812 году?",["Пётр I","Николай I","Александр I","Александр II"],2)]),
+  L("hist-2","🔓","Реформы Александра II","Отмена крепостного права и другие реформы",
+   "Александр II понимал, что страна отстаёт, и начал большие реформы. Главная из них отмена крепостного права 19 февраля 1861 года. Крестьяне стали свободными. Потом появились земства (местное самоуправление), новые суды и всеобщая воинская повинность. Александра II прозвали Освободителем. В 1881 году его убили.",
+   `<ul><li><b>1861:</b> отмена крепостного права.</li><li><b>1864:</b> земская и судебная реформы.</li><li><b>1874:</b> военная реформа, всеобщая воинская повинность.</li></ul>`,
+   "Запомни пару: 1861 и Освободитель.",
+   [Q("В каком году отменили крепостное право в России?",["1812","1861","1905","1917"],1),Q("Каким прозвищем называют Александра II?",["Грозный","Освободитель","Миротворец","Великий"],1),Q("Земства были органами...",["армии","местного самоуправления","царской охраны","церкви"],1)]),
+  L("hist-3","🏛️","Россия в начале XX века","Николай II, революция 1905 года и Дума",
+   "Последним императором России был Николай II. В 1904–1905 годах была война с Японией, и Россия её проиграла. В 1905 году началась революция. 17 октября 1905 года царь подписал манифест: люди получили свободы, а в стране появилась Государственная дума. Позже премьер-министр Столыпин начал аграрную реформу для крестьян.",
+   `<ul><li><b>1904–1905:</b> русско-японская война.</li><li><b>1905:</b> революция и Манифест 17 октября.</li><li><b>Государственная дума:</b> выборный орган, который участвует в принятии законов.</li><li><b>Реформа:</b> Столыпина, аграрная.</li></ul>`,
+   "Всё началось с поражения в войне 1904–1905, а закончилось Думой и манифестом.",
+   [Q("Кто был последним российским императором?",["Александр III","Николай II","Пётр III","Павел I"],1),Q("С какой страной Россия воевала в 1904–1905 годах?",["Франция","Турция","Япония","Швеция"],2),Q("Какой орган появился в России после Манифеста 17 октября 1905 года?",["Сенат","Государственная дума","Совет министров","Земство"],1)])
+  ]},
+{ id:"lit", name:"Литература", emoji:"📚", lesson:true, blurb:"Роды, приёмы, произведения 9 класса",
+  intro:"Короткие уроки по литературе. Читай по одному, потом проходи мини-тест.",
+  topics:[
+  L("lit-1","🎭","Роды и жанры","Эпос, лирика и драма",
+   "Все произведения делят на три рода. В эпосе автор рассказывает историю. В лирике он делится чувствами. В драме история показана через диалоги героев, и её ставят на сцене. Жанр это вид произведения внутри рода.",
+   `<ul><li><b>Эпос:</b> рассказ, повесть, роман, басня.</li><li><b>Лирика:</b> стихотворение, ода, элегия.</li><li><b>Драма:</b> пьеса, комедия, трагедия.</li></ul>`,
+   "Есть диалоги героев и ремарки: это драма. Есть чувства автора: это лирика. Есть сюжет и рассказчик: это эпос.",
+   [Q("Комедия «Горе от ума» относится к роду...",["эпосу","лирике","драме","публицистике"],2),Q("Басня это...",["короткий рассказ с моралью","большое стихотворение","пьеса","сказка без морали"],0),Q("Стихотворение о чувствах автора это род...",["эпос","лирика","драма","роман"],1)]),
+  L("lit-2","✨","Средства выразительности","Эпитет, метафора, олицетворение, сравнение",
+   "Это приёмы, которые делают речь яркой. Если в задании просят найти приём, ищи слова, которые используются не в прямом смысле.",
+   `<ul><li><b>Эпитет:</b> красочное определение (золотая осень).</li><li><b>Сравнение:</b> «как», «словно» (белый, как снег).</li><li><b>Олицетворение:</b> неживое ведёт себя как живое (ветер поёт).</li><li><b>Метафора:</b> скрытое сравнение (заря пожара).</li><li><b>Гипербола:</b> сильное преувеличение (сто лет не виделись).</li></ul>`,
+   "Есть «как» или «словно»: это сравнение. Предмет делает то, что умеет только человек: это олицетворение.",
+   [Q("«Ветер поёт песню». Что это за приём?",["эпитет","олицетворение","гипербола","сравнение"],1),Q("«Белый, как снег». Что это за приём?",["метафора","сравнение","олицетворение","антитеза"],1),Q("«Золотая осень». Слово «золотая» это...",["эпитет","сравнение","гипербола","олицетворение"],0)]),
+  L("lit-3","📖","Произведения 9 класса","Кто что написал",
+   "В 9 классе проходят классику XIX века. Полезно запомнить автора, главного героя и главную мысль.",
+   `<ul><li><b>«Горе от ума»:</b> Грибоедов, главный герой Чацкий.</li><li><b>«Капитанская дочка»:</b> Пушкин, герои Гринёв и Пугачёв.</li><li><b>«Евгений Онегин»:</b> Пушкин, герои Онегин и Татьяна.</li><li><b>«Герой нашего времени»:</b> Лермонтов, герой Печорин.</li><li><b>«Мёртвые души»:</b> Гоголь, герой Чичиков.</li></ul>`,
+   "Делай себе таблицу: автор, название, герой. По ней очень легко повторять.",
+   [Q("Кто написал комедию «Горе от ума»?",["Пушкин","Грибоедов","Гоголь","Лермонтов"],1),Q("Кто главный герой «Героя нашего времени»?",["Онегин","Чацкий","Печорин","Гринёв"],2),Q("Кто автор «Капитанской дочки»?",["Пушкин","Толстой","Тургенев","Чехов"],0)])
+  ]},
+{ id:"eng", name:"Английский", emoji:"💬", lesson:true, blurb:"Времена, артикли, вопросы",
+  intro:"Короткие уроки по английскому. Читай по одному, потом проходи мини-тест.",
+  topics:[
+  L("eng-1","⏰","Три главных времени","Present, Past и Future Simple",
+   "Начни с трёх простых времён. Present Simple говорит о привычках и фактах. Past Simple рассказывает о том, что уже было. Future Simple о том, что будет.",
+   `<ul><li><b>Present:</b> I play. He plays (к he, she, it добавляем -s).</li><li><b>Past:</b> I played. I went (неправильные глаголы нужно учить).</li><li><b>Future:</b> I will play.</li></ul>`,
+   "Слова-подсказки: every day (Present), yesterday (Past), tomorrow (Future).",
+   [Q("She ___ to school every day.",["go","goes","went","will go"],1),Q("Yesterday I ___ a film.",["watch","watches","watched","will watch"],2),Q("Tomorrow we ___ visit grandma.",["visited","visit","visits","will"],3)]),
+  L("eng-2","🔤","Артикли","a, an и the",
+   "Артикль это маленькое слово перед существительным. A или an используем, когда говорим о предмете впервые или об одном из многих. The используем, когда предмет конкретный или единственный.",
+   `<ul><li><b>a</b> перед согласным звуком: a book.</li><li><b>an</b> перед гласным звуком: an apple.</li><li><b>the</b> для единственного в своём роде: the sun, the moon.</li></ul>`,
+   "Выбирай a или an по звуку, а не по букве: an hour (час), a university.",
+   [Q("I have ___ apple.",["a","an","the","(без артикля)"],1),Q("___ sun is hot.",["A","An","The","(без артикля)"],2),Q("I have ___ dog.",["a","an","the","two"],0)]),
+  L("eng-3","❓","Вопросы и неправильные глаголы","Do, does, did",
+   "Чтобы задать вопрос в Simple, ставим помощника в начало: do, does или did. Do для I, you, we, they. Does для he, she, it. Did для прошедшего времени. После помощника глагол стоит в начальной форме.",
+   `<ul><li>Do you like tea?</li><li>Does she like tea?</li><li>Did he like tea?</li></ul><p>Неправильные глаголы: go, went. See, saw. Write, wrote. Take, took.</p>`,
+   "После does и did никаких -s и -ed: Does she play? Did he play?",
+   [Q("___ he play football?",["Do","Does","Did he","Is"],1),Q("Прошедшее время глагола go:",["goed","went","gone","goes"],1),Q("Прошедшее время глагола see:",["seen","seed","saw","sees"],2)])
+  ]},
+{ id:"phys", name:"Физика", emoji:"⚡", lesson:true, blurb:"Скорость, силы, электричество",
+  intro:"Короткие уроки по физике. Читай по одному, потом проходи мини-тест.",
+  topics:[
+  L("phys-1","🏃","Скорость и путь","Как найти скорость, путь и время",
+   "Скорость показывает, какой путь тело проходит за единицу времени. Три величины связаны одной формулой, как в «треугольнике»: если закрыть ту, которую ищешь, увидишь, что с чем делать.",
+   `<div class="formula">v = s / t</div><div class="formula">s = v · t</div><div class="formula">t = s / v</div><p>Чтобы перевести м/с в км/ч, умножь на 3,6.</p>`,
+   "Следи за единицами: если скорость в км/ч, то и путь должен быть в километрах, а время в часах.",
+   [Q("Автобус проехал 100 км за 2 часа. Его скорость?",["20 км/ч","50 км/ч","100 км/ч","200 км/ч"],1),Q("Сколько км/ч в 10 м/с?",["10","36","3,6","100"],1),Q("Скорость 5 м/с. Какой путь за 3 секунды?",["8 м","15 м","1,6 м","2 м"],1)]),
+  L("phys-2","🍎","Силы","Сила, тяжесть и законы Ньютона",
+   "Сила это то, что толкает или тянет тело. Измеряют её в ньютонах (Н). Земля притягивает всё к себе, и это сила тяжести. Три закона Ньютона описывают, как движется всё вокруг.",
+   `<ul><li><b>1 закон:</b> без сил тело стоит или едет прямо с постоянной скоростью (инерция).</li><li><b>2 закон:</b> F = m · a.</li><li><b>3 закон:</b> силы действия и противодействия равны.</li></ul><div class="formula">F = m · g, g ≈ 10 Н/кг</div>`,
+   "Чтобы найти силу тяжести, умножай массу в килограммах на 10.",
+   [Q("Какая сила тяжести действует на груз массой 5 кг (g = 10 Н/кг)?",["5 Н","15 Н","50 Н","500 Н"],2),Q("В каких единицах измеряют силу?",["в килограммах","в ньютонах","в джоулях","в метрах"],1),Q("Закон инерции это...",["первый закон Ньютона","второй закон Ньютона","третий закон Ньютона","закон Ома"],0)]),
+  L("phys-3","🔌","Электрический ток","Закон Ома",
+   "Электрический ток это движение заряженных частиц. Напряжение «толкает» их, сопротивление мешает. Три величины связаны законом Ома.",
+   `<div class="formula">I = U / R</div><ul><li>I это сила тока в амперах (А).</li><li>U это напряжение в вольтах (В).</li><li>R это сопротивление в омах (Ом).</li></ul><p>При последовательном соединении сопротивления складываются: R = R₁ + R₂.</p>`,
+   "Напряжение больше, ток больше. Сопротивление больше, ток меньше.",
+   [Q("Напряжение 12 В, сопротивление 4 Ом. Чему равна сила тока?",["3 А","8 А","16 А","48 А"],0),Q("В каких единицах измеряют сопротивление?",["в амперах","в вольтах","в омах","в ваттах"],2),Q("Два резистора 2 Ом и 3 Ом соединены последовательно. Общее сопротивление?",["1 Ом","1,2 Ом","5 Ом","6 Ом"],2)])
+  ]},
+{ id:"chem", name:"Химия", emoji:"🧪", lesson:true, blurb:"Таблица, вещества, реакции",
+  intro:"Короткие уроки по химии. Читай по одному, потом проходи мини-тест.",
+  topics:[
+  L("chem-1","🧱","Таблица Менделеева","Как её читать",
+   "Периодическая таблица это «карта» всех химических элементов. У каждого элемента есть символ (например, O это кислород) и номер. Горизонтальные ряды называются периодами, вертикальные столбцы группами.",
+   `<ul><li>Номер элемента равен числу протонов в ядре атома.</li><li>У атома столько же электронов, сколько протонов.</li><li>Металлы слева и внизу, неметаллы справа вверху.</li></ul>`,
+   "Название строки по-научному «период», а столбца «группа».",
+   [Q("Что показывает порядковый номер элемента?",["число протонов","массу в граммах","цвет","число нейтронов"],0),Q("Как называется горизонтальный ряд таблицы?",["группа","период","столбец","семейство"],1),Q("Какой символ у кислорода?",["K","Ca","O","C"],2)]),
+  L("chem-2","⚗️","Вещества и реакции","Простые, сложные и типы реакций",
+   "Простое вещество состоит из атомов одного элемента (O₂, Fe). Сложное из атомов разных (H₂O, CO₂). Химическая реакция это превращение одних веществ в другие. Есть четыре основных типа реакций.",
+   `<ul><li><b>Соединение:</b> A + B → AB</li><li><b>Разложение:</b> AB → A + B</li><li><b>Замещение:</b> A + BC → AC + B</li><li><b>Обмен:</b> AB + CD → AD + CB</li></ul>`,
+   "Одно вещество стало двумя и больше: разложение. Два стали одним: соединение.",
+   [Q("Какое из веществ сложное?",["O₂","Fe","H₂O","N₂"],2),Q("Реакция 2H₂O → 2H₂ + O₂ называется...",["соединение","разложение","замещение","обмен"],1),Q("Железо Fe это...",["простое вещество","сложное вещество","смесь","кислота"],0)]),
+  L("chem-3","🧂","Кислоты, основания и соли","Как их отличать",
+   "Эти три класса веществ отличаются по формулам. У кислот в начале стоит водород H. У оснований в конце группа OH. Соль состоит из металла и кислотного остатка. Индикаторы меняют цвет и помогают узнать среду.",
+   `<ul><li><b>Кислота:</b> HCl, H₂SO₄.</li><li><b>Основание:</b> NaOH, KOH.</li><li><b>Соль:</b> NaCl (поваренная соль).</li></ul><p>Лакмус в кислоте красный, в щёлочи синий. Фенолфталеин в щёлочи малиновый.</p>`,
+   "Есть H в начале, значит кислота. Есть OH в конце, значит основание.",
+   [Q("Какая из формул относится к соли?",["HCl","NaOH","NaCl","H₂SO₄"],2),Q("Какого цвета лакмус в кислой среде?",["красный","синий","жёлтый","зелёный"],0),Q("NaOH относится к...",["кислотам","основаниям","солям","простым веществам"],1)])
+  ]}
+];
+const ALL_SUBJECTS = SUBJECTS.concat(LESSON_SUBJECTS);
+LESSON_SUBJECTS.forEach(sb=>sb.topics.forEach(t=>t.quiz.forEach(q=>{
+  if(q.o.length<3 || q.o.every(x=>/^[\d(]/.test(x))) return;
+  const right=q.o[q.a], arr=q.o.slice();
+  for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); const tmp=arr[i]; arr[i]=arr[j]; arr[j]=tmp; }
+  q.o=arr; q.a=arr.indexOf(right);
+})));
+function lessonsCardHTML(){
+  return `<section class="card"><h3>Уроки 9 класса 📚</h3>
+    <p class="muted">Короткие понятные объяснения по остальным предметам. Это помощь с уроками, а не экзамен.</p>
+    <div class="chips">${LESSON_SUBJECTS.map(s=>{
+      const n=s.topics.filter(t=>done[t.id]).length;
+      return `<a class="chip" href="#${s.id}">${s.emoji} ${s.name} <small>${n}/${s.topics.length}</small></a>`;
+    }).join("")}</div></section>`;
+}
+function helperCardHTML(){
+  return `<section class="card"><h3>Помощь и отзыв 💬</h3>
+    <p class="muted">Что-то не понятно? Спроси помощника. Понравился сайт? Напиши отзыв.</p>
+    <div class="chips">
+      <a class="chip" href="#chat">💬 Спросить помощника</a>
+      <a class="chip" href="#review">💌 Отзыв любимому</a>
+    </div></section>`;
+}
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const CHAT_RULES = "Ты добрый помощник-репетитор на сайте для подготовки к ОГЭ. Ты разговариваешь с Лизочкой, ей 14-15 лет, она учится в 9 классе, начинает подготовку с нуля и трудно воспринимает сложные объяснения. Правила: 1) Отвечай по-русски, тепло и спокойно, на «ты». 2) Объясняй коротко и очень просто: 3-6 предложений, короткие фразы, один небольшой пример. Сложные слова сразу поясняй. 3) Если она просит решить задачу, покажи решение по шагам, объясни каждый шаг, и в конце предложи похожую задачку, чтобы она попробовала сама. 4) Если она ошиблась, мягко объясни, где, без критики. 5) Если ей страшно или грустно из-за экзамена, сначала поддержи тёплыми словами, потом предложи маленький первый шаг. 6) Помогай по математике и русскому языку (ОГЭ) и по остальным предметам 9 класса. Если вопрос не про учёбу, дружелюбно верни к учёбе. 7) Не используй markdown-разметку: без звёздочек, решёток и таблиц, пиши обычным текстом с редкими эмодзи. Формулы пиши обычным текстом. 8) Проверяй вычисления и не выдумывай факты. Если не уверен, так и скажи и посоветуй сверить с учебником или учителем. Ты ИИ-помощник, а не человек. Ответь на последнее сообщение Лизочки.";
+const CHAT_CHIPS = ["Объясни дроби проще","Как запомнить правило про НН?","Дай задачку по математике","Мне страшно перед ОГЭ"];
+let sampleFn = null, sampleState = "wait", chatBusy = false, chatStream = "", chatErr = "", chatStarted = false;
+let chatTurns = (function(){ try{ const v=JSON.parse(localStorage.getItem("liza_chat")||"[]"); return Array.isArray(v)?v.slice(-20):[]; }catch(e){ return []; } })();
+function saveChat(){ try{ localStorage.setItem("liza_chat",JSON.stringify(chatTurns.slice(-20))); }catch(e){} }
+function chatView(){
+  return `<a class="back" href="#">← Домой</a>
+  <header class="thead"><div class="big">💬</div><h2>Помощник</h2><p class="muted">Спроси что угодно по учёбе. Я объясню коротко и просто.</p></header>
+  <section class="card">
+    <div class="chips">${CHAT_CHIPS.map(c=>`<button class="chip" data-chatchip="${esc(c)}">${esc(c)}</button>`).join("")}</div>
+    <div class="chatlog" id="chatlog" aria-live="polite"></div>
+    <div class="chatform"><textarea id="chatin" rows="2" placeholder="Напиши вопрос..."></textarea><button class="btn" id="chatbtn" data-chatsend>Отправить</button></div>
+    <p class="note" id="chatnote"></p>
+  </section>`;
+}
+function paintChat(){
+  const log=$("chatlog"); if(!log) return;
+  let h=`<div class="bubble bot">Привет, любимая Лизочка! 💖 Я твой помощник. Можно спрашивать про математику, русский и любые уроки. Не переживай, глупых вопросов не бывает.</div>`;
+  chatTurns.forEach(t=>{ h+=`<div class="bubble ${t.role==="user"?"me":"bot"}">${esc(t.content)}</div>`; });
+  if(chatBusy) h+=`<div class="bubble bot" id="chatlive">${esc(chatStream||"Думаю... 💭")}</div>`;
+  log.innerHTML=h;
+  log.scrollTop=log.scrollHeight;
+}
+function chatStatus(){
+  const note=$("chatnote"), btn=$("chatbtn"); if(!note) return;
+  let msg="", off=false;
+  if(sampleState==="wait"){ msg="Подключаю помощника..."; off=true; }
+  else if(sampleState==="none"){ msg="Помощник работает, только если открыть страничку по ссылке claude.ai. Здесь он недоступен, но уроки и тренировки работают как обычно."; off=true; }
+  else if(chatErr){ msg=chatErr; }
+  else msg="Помощник это ИИ, он может ошибаться. Важное лучше сверить с учебником.";
+  if(chatBusy) off=true;
+  note.textContent=msg; if(btn) btn.disabled=off;
+}
+async function chatInit(){
+  if(chatStarted){ chatStatus(); return; }
+  chatStarted=true;
+  try{ sampleFn = (window.claude && window.claude.use) ? await window.claude.use("sample") : null; }catch(e){ sampleFn=null; }
+  sampleState = sampleFn ? "ok" : "none";
+  chatStatus();
+}
+async function chatSend(preset){
+  const ta=$("chatin");
+  const text=(preset!=null?preset:(ta?ta.value:"")).trim();
+  if(!text||chatBusy) return;
+  if(!sampleFn){ toast("Помощник работает только по ссылке claude.ai 🌷"); return; }
+  chatBusy=true; chatErr=""; chatStream="";
+  if(ta) ta.value="";
+  chatTurns.push({role:"user",content:text});
+  paintChat(); chatStatus();
+  try{
+    const msgs=[{role:"user",content:CHAT_RULES}].concat(chatTurns.slice(-12));
+    const res=await sampleFn(msgs,{cache:false,modelTier:"quick",onText:u=>{
+      chatStream=u.text;
+      const live=$("chatlive"); if(live){ live.textContent=u.text; const lg=$("chatlog"); if(lg) lg.scrollTop=lg.scrollHeight; }
+    }});
+    chatTurns.push({role:"assistant",content:res.text}); saveChat();
+  }catch(e){
+    chatTurns.pop();
+    const code=e&&e.code;
+    if(code==="not_granted"||code==="sampling_disabled"||code==="not_declared"||code==="capability_disabled"){ sampleFn=null; sampleState="none"; }
+    else if(code==="rate_limited") chatErr="Сейчас слишком много сообщений. Подожди минутку и попробуй снова 🌷";
+    else if(code!=="cancelled") chatErr="Не получилось ответить. Попробуй ещё раз 🌷";
+    if(ta&&!ta.value) ta.value=text;
+  }finally{
+    chatBusy=false; chatStream="";
+    paintChat(); chatStatus();
+  }
+}
+function reviewState(){ const v=LS.get("liza_review",null); return (v&&typeof v==="object")?{stars:Number(v.stars)||0,text:String(v.text||"")}:{stars:0,text:""}; }
+function starsHTML(n){
+  let h="";
+  for(let i=1;i<=5;i++) h+=`<button class="star" data-star="${i}" aria-label="Оценка ${i} из 5">${i<=n?"💖":"🤍"}</button>`;
+  return h;
+}
+function reviewMsg(){
+  const rv=reviewState();
+  return "Мой отзыв о сайте для ОГЭ"+(rv.stars?" "+"💖".repeat(rv.stars)+" ("+rv.stars+" из 5)":"")+"\n\n"+rv.text.trim();
+}
+function updateRvLink(){
+  const rv=reviewState(), b=$("rvcopy");
+  if(b) b.disabled=!(rv.stars||rv.text.trim());
+}
+function copyText(txt){
+  try{
+    if(navigator.clipboard&&navigator.clipboard.writeText) return navigator.clipboard.writeText(txt).then(()=>true,()=>false);
+  }catch(e){}
+  return Promise.resolve(false);
+}
+function reviewHTML(){
+  const rv=reviewState();
+  return `<a class="back" href="#">← Домой</a>
+  <header class="thead"><div class="big">💌</div><h2>Отзыв любимому</h2><p class="muted">Напиши тому, кто сделал для тебя этот сайт. Что понравилось, что помогло, чего не хватает.</p></header>
+  <section class="card">
+    <span class="eyebrow">Моя оценка</span>
+    <div class="stars" id="stars">${starsHTML(rv.stars)}</div>
+    <label class="muted" for="rvtext">Мой отзыв</label>
+    <textarea id="rvtext" rows="6" placeholder="Например: что мне больше всего помогло, что было непонятно, что добавить...">${esc(rv.text)}</textarea>
+    <div class="row"><button class="btn pulse" id="rvcopy" data-rvcopy ${(rv.stars||rv.text.trim())?"":"disabled"}>Скопировать отзыв 💌</button></div>
+    <p class="note">Сайт не может сам отправить сообщение. Нажми «Скопировать» и вставь отзыв ему в мессенджер.</p>
+  </section>`;
+}
+const LS = {
+  get(k,d){ try{ const v=localStorage.getItem(k); return v===null?d:JSON.parse(v); }catch(e){ return d; } },
+  set(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} }
+};
+let done = LS.get("liza_done",{});
+let examDate = LS.get("liza_date","");
+let unlocked = Math.floor(Object.keys(done).filter(k=>done[k]).length / TOPICS_PER_STICKER);
+const EXTRA = {
+  math:[
+    {q:"3/5 + 1/10 = ?",o:["4/15","7/10","4/10","3/50"],a:1},
+    {q:"40% от 150 это сколько?",o:["40","60","6","90"],a:1},
+    {q:"Решите: 7x − 3 = 25",o:["3","4","5","22/7"],a:1},
+    {q:"Решите: x² − 4 = 0",o:["2","4","2 и −2","−2"],a:2},
+    {q:"Катеты 8 и 15. Чему равна гипотенуза?",o:["17","23","19","7"],a:0},
+    {q:"Площадь прямоугольника 7 × 6",o:["13","26","42","48"],a:2},
+    {q:"В коробке 2 красных и 8 синих шаров. Вероятность достать красный?",o:["0,2","0,8","0,25","2"],a:0},
+    {q:"Как записать 0,25 обыкновенной дробью?",o:["1/2","1/4","1/5","25/10"],a:1},
+    {q:"Цена выросла с 400 ₽ до 500 ₽. На сколько процентов?",o:["20%","25%","100%","10%"],a:1},
+    {q:"Решите: 2(x + 3) = 14",o:["4","5","7","8"],a:0},
+    {q:"Корни уравнения x² − 6x + 8 = 0",o:["2 и 4","−2 и −4","1 и 8","3 и 5"],a:0},
+    {q:"Площадь треугольника: основание 14, высота 5",o:["70","35","19","9,5"],a:1},
+    {q:"Сколько будет 1/3 от 21?",o:["3","7","18","63"],a:1}
+  ],
+  russian:[
+    {q:"Сколько Н в слове кожа_ый?",o:["одна","две"],a:0},
+    {q:"Как пишется: оловя_ый?",o:["Н","НН"],a:1},
+    {q:"Как пишется: утр_ий (утро)?",o:["Н","НН"],a:1},
+    {q:"Как пишется: (не)весёлый (то есть грустный)?",o:["слитно","раздельно"],a:0},
+    {q:"Как пишется: Я (не)люблю дождь",o:["слитно","раздельно"],a:1},
+    {q:"Мы пошли гулять_ потому что погода хорошая. Запятая нужна?",o:["да","нет"],a:0},
+    {q:"Она читала_ и рисовала. Запятая перед «и» нужна?",o:["да","нет"],a:1},
+    {q:"Идёт дождь_ но мы идём гулять. Запятая нужна?",o:["да","нет"],a:0},
+    {q:"Какое слово проверяется ударением?",o:["корова","собака","трава","молоко"],a:2},
+    {q:"Что нужно сделать в изложении?",o:["Пересказать кратко своими словами","Выучить текст наизусть","Написать свою историю","Переписать текст"],a:0},
+    {q:"Что должно быть в конце сочинения-рассуждения?",o:["Вывод","Новый тезис","Вопрос","Ничего"],a:0},
+    {q:"Какая буква пропущена: к..стёр (костры)?",o:["о","а","е","и"],a:0},
+    {q:"Какая буква пропущена: в..сной (весна)?",o:["е","и","я","а"],a:0}
+  ]
+};
+const WORDS = [["к_рова",["о","а"],0,"корова"],["с_бака",["а","о"],1,"собака"],["м_локо",["о","а"],0,"молоко"],["г_род",["о","а"],0,"город"],["в_робей",["а","о"],1,"воробей"],["п_ссажир",["а","о"],0,"пассажир"],["к_ридор",["о","а"],0,"коридор"],["к_мпьютер",["о","а"],0,"компьютер"],["к_нфета",["о","а"],0,"конфета"],["т_бурет",["а","о"],0,"табурет"],["ш_колад",["о","а"],0,"шоколад"],["ч_мпион",["е","и"],0,"чемпион"],["т_релка",["а","о"],0,"тарелка"],["т_лефон",["и","е"],1,"телефон"],["с_лдат",["о","а"],0,"солдат"],["п_норама",["а","о"],0,"панорама"],["б_кал",["о","а"],0,"бокал"],["л_донь",["а","о"],0,"ладонь"],["д_говор",["о","а"],0,"договор"],["к_лограмм",["и","е"],0,"килограмм"],["к_лометр",["и","е"],0,"километр"],["б_нзин",["е","и"],0,"бензин"],["в_кзал",["о","а"],0,"вокзал"],["г_ризонт",["о","а"],0,"горизонт"],["д_журный",["е","и"],0,"дежурный"],["п_ртфель",["о","а"],0,"портфель"],["т_мат",["о","а"],0,"томат"],["к_пуста",["а","о"],0,"капуста"],["к_ртофель",["а","о"],0,"картофель"]];
+const CARDS = [
+  {s:"Математика",f:"Площадь треугольника",b:"S = ½ · a · h (основание на высоту, пополам)"},
+  {s:"Математика",f:"Площадь трапеции",b:"S = (a + b) / 2 · h"},
+  {s:"Математика",f:"Площадь параллелограмма",b:"S = a · h"},
+  {s:"Математика",f:"Теорема Пифагора",b:"a² + b² = c², где c это гипотенуза"},
+  {s:"Математика",f:"Тройки Пифагора, которые стоит помнить",b:"3-4-5, 5-12-13, 6-8-10, 8-15-17"},
+  {s:"Математика",f:"Дискриминант",b:"D = b² − 4ac"},
+  {s:"Математика",f:"Корни квадратного уравнения, если D больше 0",b:"x = (−b ± √D) / 2a"},
+  {s:"Математика",f:"Сколько корней, если D равен 0 и если D меньше 0?",b:"D = 0: один корень. D меньше 0: корней нет"},
+  {s:"Математика",f:"Вероятность",b:"P = нужные исходы / все исходы. Всегда от 0 до 1"},
+  {s:"Математика",f:"Как найти 10% от числа?",b:"Разделить число на 10"},
+  {s:"Математика",f:"Как увеличить число на p%?",b:"Умножить на (1 + p/100). Например, +20% это ×1,2"},
+  {s:"Математика",f:"Как делить дроби?",b:"Вторую дробь переверни и умножай"},
+  {s:"Математика",f:"Что происходит со знаком при переносе через «=»?",b:"Знак меняется на противоположный"},
+  {s:"Русский язык",f:"Безударная гласная в корне",b:"Подбери родственное слово, где она под ударением: вода → воды"},
+  {s:"Русский язык",f:"Словарные слова",b:"Не проверяются. Их запоминаем: корова, молоко, собака"},
+  {s:"Русский язык",f:"Одна Н в прилагательных",b:"В суффиксах -АН-, -ЯН-, -ИН-: кожаный, глиняный, утиный"},
+  {s:"Русский язык",f:"НН в прилагательных",b:"В суффиксах -ЕНН-, -ОНН-: утренний, станционный"},
+  {s:"Русский язык",f:"Исключения про НН",b:"Стеклянный, оловянный, деревянный"},
+  {s:"Русский язык",f:"НЕ с глаголами",b:"Пишется раздельно: не бегать, не знает"},
+  {s:"Русский язык",f:"Когда НЕ пишется слитно?",b:"Если слова без НЕ нет (неряха) или можно заменить синонимом (невысокий = низкий)"},
+  {s:"Русский язык",f:"Запятая перед А и НО",b:"Ставится всегда: Он умный, но ленивый"},
+  {s:"Русский язык",f:"Однородные члены с одиночным И",b:"Запятая не нужна: чай и кофе"},
+  {s:"Русский язык",f:"Грамматическая основа",b:"Подлежащее + сказуемое. Сколько основ, столько частей в предложении"},
+  {s:"Русский язык",f:"Запятая перед что, чтобы, который",b:"Ставится: Я знаю, что ты справишься"},
+  {s:"Русский язык",f:"Как писать изложение?",b:"Отметь главное, убери детали, пиши коротко. Не меньше 70 слов"},
+  {s:"Русский язык",f:"План сочинения-рассуждения",b:"Тезис → пример из текста → пример из жизни → вывод"}
+];
+const nm = s => s.replace(/Лиза(?![а-яё])/g,"Лизочка");
+let session = null, cardsS = null;
+const shuffle = a => { const x=a.slice(); for(let i=x.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); const tmp=x[i]; x[i]=x[j]; x[j]=tmp; } return x; };
+const dayStr = d => { d=d||new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); };
+function getStats(){ return LS.get("liza_stats",{a:0,c:0}); }
+function getWrong(){ return LS.get("liza_wrong",[]); }
+function recordAnswer(id,ok){
+  const s=getStats(); s.a++; if(ok) s.c++; LS.set("liza_stats",s);
+  let w=getWrong(); const has=w.indexOf(id)>=0;
+  if(!ok&&!has) w.push(id);
+  if(ok&&has) w=w.filter(x=>x!==id);
+  LS.set("liza_wrong",w);
+}
+function initStreak(){
+  const s=LS.get("liza_streak",{last:"",n:0}), t=dayStr();
+  if(s.last===t) return;
+  const y=new Date(); y.setDate(y.getDate()-1);
+  s.n = s.last===dayStr(y) ? s.n+1 : 1; s.last=t; LS.set("liza_streak",s);
+}
+function statsLine(){
+  const s=getStats(), k=LS.get("liza_streak",{n:1});
+  return "Верных ответов: "+s.c+" из "+s.a+" · Дней подряд: 🔥 "+(k.n||1);
+}
+const GOALS = ["Пройти одну тему","Сделать блиц на 10 вопросов","Повторить карточки"];
+function getGoals(){ const g=LS.get("liza_goals",null); if(!g||g.d!==dayStr()) return {d:dayStr(),c:GOALS.map(()=>false)}; return g; }
+function dailyHTML(){
+  const g=getGoals(), n=g.c.filter(Boolean).length;
+  return `<section class="card"><h3>План на сегодня 🗓️</h3>
+    <p class="muted">Выполнено ${n} из ${GOALS.length}. Маленькие шаги тоже считаются 💕</p>
+    <div class="chips">${GOALS.map((x,i)=>`<button class="chip" data-goal="${i}" aria-pressed="${g.c[i]?"true":"false"}">${g.c[i]?"✅":"⬜"} ${x}</button>`).join("")}</div></section>`;
+}
+function trainCardHTML(){
+  const w=getWrong().length;
+  return `<section class="card"><h3>Тренировки 🎯</h3>
+    <p class="muted">Пробные варианты, блиц, карточки и работа над ошибками.</p>
+    <div class="chips">
+      <a class="chip" href="#t-math">📐 Пробник: математика</a>
+      <a class="chip" href="#t-russian">📖 Пробник: русский</a>
+      <a class="chip" href="#t-blitz">⚡ Блиц</a>
+      <a class="chip" href="#cards">🃏 Карточки</a>
+      <a class="chip" href="#t-words">🔤 Словарные слова</a>
+      <a class="chip" href="#t-mistakes">🔁 Мои ошибки <small>${w}</small></a>
+      <a class="chip" href="#cheat">📝 Шпаргалка</a>
+    </div></section>`;
+}
+function trainView(){
+  const w=getWrong().length;
+  const row=(href,em,title,sub)=>`<a class="topic-row" href="${href}"><span class="em">${em}</span><span class="tx"><b>${title}</b><span class="s">${sub}</span></span></a>`;
+  return `<a class="back" href="#">← Домой</a>
+  <header class="thead"><div class="big">🎯</div><h2>Тренировки</h2><p class="muted">Выбирай, что хочется сегодня</p></header>
+  <div class="topic-list">
+    ${row("#t-math","📐","Пробный вариант: математика","15 вопросов по всем темам сразу")}
+    ${row("#t-russian","📖","Пробный вариант: русский язык","15 вопросов по всем темам сразу")}
+    ${row("#t-blitz","⚡","Блиц","10 быстрых вопросов из обоих предметов")}
+    ${row("#t-words","🔤","Словарные слова","12 слов: вставь пропущенную букву")}
+    ${row("#t-mistakes","🔁","Работа над ошибками","Вопросов на повторение: "+w)}
+    ${row("#cards","🃏","Карточки","Переворачивай и запоминай правила и формулы")}
+    ${row("#cheat","📝","Шпаргалка","Все формулы и правила на одной странице")}
+  </div>`;
+}
+function bank(sid){
+  const out=[];
+  SUBJECTS.filter(s=>!sid||s.id===sid).forEach(s=>{
+    s.topics.forEach(t=>t.quiz.forEach((q,i)=>out.push({id:t.id+"#"+i,q:q.q,o:q.o,a:q.a,tag:s.name+" · "+t.title})));
+    (EXTRA[s.id]||[]).forEach((q,i)=>out.push({id:"x-"+s.id+"-"+i,q:q.q,o:q.o,a:q.a,tag:s.name}));
+  });
+  return out;
+}
+function wordQs(){ return WORDS.map((w,i)=>({id:"w-"+i,q:"Вставь букву: "+w[0],o:w[1],a:w[2],full:w[3],tag:"Словарные слова"})); }
+function makeSession(key){
+  let title="Тренировка", qs=[];
+  if(key==="t-math"||key==="t-russian"){
+    const sid=key.slice(2), s=SUBJECTS.find(x=>x.id===sid);
+    if(s){ title="Пробный вариант: "+s.name; qs=shuffle(bank(sid)).slice(0,15); }
+  }
+  else if(key==="t-blitz"){ title="Блиц ⚡"; qs=shuffle(bank()).slice(0,10); }
+  else if(key==="t-words"){ title="Словарные слова 🔤"; qs=shuffle(wordQs()).slice(0,12); }
+  else if(key==="t-mistakes"){ title="Работа над ошибками 🔁"; const w=getWrong(); qs=shuffle(bank().concat(wordQs()).filter(q=>w.indexOf(q.id)>=0)); }
+  return {key,title,qs,i:0,score:0,picked:null,missed:[]};
+}
+function runInner(){
+  const S=session, n=S.qs.length;
+  if(S.i>=n){
+    const pct=Math.round(S.score/n*100);
+    const msg=pct>=90?"Идеально, умничка! 🏆":pct>=70?"Очень хорошо! 💕":pct>=50?"Неплохо! Давай повторим ошибки 🌷":"Ничего страшного, это только начало 🤍 Загляни в «Работу над ошибками»";
+    return `<div class="result"><div class="score">${S.score} из ${n}</div><p>${msg}</p></div>
+      ${S.missed.length?`<span class="eyebrow">Над чем стоит подумать</span>${S.missed.map(q=>`<div class="ex"><div class="q">${q.q}</div><p class="muted">Верный ответ: <b>${q.full||q.o[q.a]}</b></p></div>`).join("")}`:`<p class="fb ok">Ни одной ошибки! 💖</p>`}
+      <div class="row"><button class="btn" data-rretry>Ещё раз</button><a class="btn soft" href="#train">К тренировкам</a></div>`;
+  }
+  const q=S.qs[S.i], answered=S.picked!==null;
+  return `<div class="bar thin"><i style="width:${Math.round(S.i/n*100)}%;animation:none"></i></div>
+    <span class="qstep">${q.tag} · вопрос ${S.i+1} из ${n}</span>
+    <div class="qtext">${q.q}</div>
+    <div class="opts">${q.o.map((o,k)=>{
+      let cls="opt"; if(answered){ if(k===q.a) cls+=" ok"; else if(k===S.picked) cls+=" bad"; }
+      return `<button class="${cls}" data-ropt="${k}" ${answered?"disabled":""}>${o}</button>`;
+    }).join("")}</div>
+    ${answered?`<div class="fb ${S.picked===q.a?"ok":"bad"}">${S.picked===q.a?nm(pick(PRAISE)):pick(SOFT)+" Верный ответ: "+(q.full||q.o[q.a])}</div>
+      <button class="btn" data-rnext>${S.i+1>=n?"Смотреть результат":"Дальше"}</button>`:""}`;
+}
+function runHTML(){
+  const S=session;
+  const head=`<a class="back" href="#train">← Тренировки</a><header class="thead"><h2>${S.title}</h2></header>`;
+  if(!S.qs.length) return head+`<section class="card"><p>${S.key==="t-mistakes"?"Ошибок пока нет, ты умница! 💖 Они появятся здесь, если что-то не получится.":"Здесь пока пусто."}</p><a class="btn" href="#train">К тренировкам</a></section>`;
+  return head+`<section class="card" id="run">${runInner()}</section>`;
+}
+function makeCards(){ return {deck:shuffle(CARDS),flipped:false,known:0,total:CARDS.length}; }
+function cardInner(){
+  const C=cardsS;
+  if(!C.deck.length) return `<div class="result"><div class="score">🎉</div><p>Ты повторила все ${C.total} карточек! Я горжусь тобой 💖</p><button class="btn" data-cardsreset>Ещё раз</button></div>`;
+  const c=C.deck[0];
+  return `<span class="qstep">Осталось ${C.deck.length} из ${C.total}</span>
+    <button class="flashcard ${C.flipped?"flipped":""}" data-flip><span class="fc-tag">${c.s}</span><span class="fc-text">${C.flipped?c.b:c.f}</span><span class="fc-hint">${C.flipped?"Ответ":"Нажми, чтобы перевернуть"}</span></button>
+    ${C.flipped?`<div class="row"><button class="btn" data-know>Знаю 💖</button><button class="btn soft" data-again>Повторить 🔁</button></div>`:""}`;
+}
+function cardsHTML(){
+  return `<a class="back" href="#train">← Тренировки</a>
+    <header class="thead"><div class="big">🃏</div><h2>Карточки</h2><p class="muted">Попробуй вспомнить ответ, потом переверни</p></header>
+    <section class="card" id="cardbox">${cardInner()}</section>`;
+}
+function cheatHTML(){
+  return `<a class="back" href="#train">← Тренировки</a>
+    <header class="thead"><div class="big">📝</div><h2>Шпаргалка</h2><p class="muted">Всё важное на одной странице</p></header>`
+    + ["Математика","Русский язык"].map(g=>`<section class="card"><h3>${g}</h3>${CARDS.filter(c=>c.s===g).map(c=>`<div class="ex"><div class="q">${c.f}</div><p>${c.b}</p></div>`).join("")}</section>`).join("");
+}
+function viewHTML(r){
+  if(r.view==="subject") return subjectView(r.s);
+  if(r.view==="topic") return topicView(r.s,r.t);
+  if(r.view==="train") return trainView();
+  if(r.view==="run") return runHTML();
+  if(r.view==="cards") return cardsHTML();
+  if(r.view==="cheat") return cheatHTML();
+  if(r.view==="chat") return chatView();
+  if(r.view==="review") return reviewHTML();
+  return homeView();
+}
+const quizState = {};
+let lastPhrase = -1;
+let msgOpen = false;
+const reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+const $ = id => document.getElementById(id);
+const pick = arr => arr[Math.floor(Math.random()*arr.length)];
+const allTopics = () => SUBJECTS.flatMap(s=>s.topics);
+const doneCount = () => allTopics().filter(t=>done[t.id]).length;
+function plural(n,a,b,c){ const m=n%100, d=n%10; if(m>=11&&m<=14) return c; if(d===1) return a; if(d>=2&&d<=4) return b; return c; }
+function nextPhrase(){ let i; do{ i=Math.floor(Math.random()*PHRASES.length); }while(i===lastPhrase); lastPhrase=i; return nm(PHRASES[i]); }
+function initHearts(){
+  if(reduce) return;
+  const box=$("hearts"), set=["💗","💖","💕","🤍","✨","🌸"];
+  for(let i=0;i<16;i++){
+    const s=document.createElement("span");
+    s.textContent=set[i%set.length];
+    s.style.left=(Math.random()*96)+"%";
+    s.style.fontSize=(14+Math.random()*20)+"px";
+    s.style.animationDuration=(13+Math.random()*14)+"s";
+    s.style.animationDelay=(-Math.random()*24)+"s";
+    box.appendChild(s);
+  }
+}
+function burst(x,y,n,set){
+  if(reduce) return;
+  n=n||8; set=set||["💖","💗","✨","💕","🌸"];
+  for(let i=0;i<n;i++){
+    const s=document.createElement("span");
+    s.className="puff"; s.textContent=pick(set);
+    s.style.left=x+"px"; s.style.top=y+"px";
+    document.body.appendChild(s);
+    const a=Math.random()*Math.PI*2, d=40+Math.random()*80;
+    const dx=Math.cos(a)*d, dy=Math.sin(a)*d-30;
+    const an=s.animate([
+      {transform:"translate(-50%,-50%) scale(.4)",opacity:1},
+      {transform:"translate(calc(-50% + "+dx+"px), calc(-50% + "+dy+"px)) scale(1.2)",opacity:0}
+    ],{duration:900+Math.random()*600,easing:"cubic-bezier(.2,.7,.3,1)"});
+    an.onfinish=()=>s.remove();
+  }
+}
+function confettiAt(el){
+  const r=el.getBoundingClientRect();
+  burst(r.left+r.width/2,r.top+r.height/2,16,["🎉","💖","✨","🌸","🎀","💕"]);
+}
+let toastT;
+function toast(html){
+  const t=$("toast"); t.innerHTML=html; t.classList.add("show");
+  clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove("show"),4300);
+}
+document.addEventListener("pointerdown",e=>{
+  if(e.target.closest("button, a, summary")) burst(e.clientX,e.clientY,5);
+});
+const T_TOTAL=600; let tLeft=T_TOTAL, tEnd=0, tRun=false, tInt=null;
+const tFmt=s=>String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0");
+function tPaint(){
+  const d=$("tdisp"); if(d) d.textContent=tFmt(Math.max(0,Math.ceil(tLeft)));
+  const b=$("tbar"); if(b) b.style.width=((T_TOTAL-tLeft)/T_TOTAL*100)+"%";
+  const s=$("tstart"); if(s) s.textContent = tRun?"Пауза":(tLeft<T_TOTAL&&tLeft>0?"Продолжить":"Начать перерыв");
+}
+function tTick(){
+  if(!tRun) return;
+  tLeft=(tEnd-Date.now())/1000;
+  if(tLeft<=0){
+    tLeft=0; tRun=false; clearInterval(tInt);
+    toast("Перерыв закончился! Ты отдохнула, можно дальше 💗");
+    burst(innerWidth/2,innerHeight/2,16);
+  }
+  tPaint();
+}
+function timerAction(a){
+  if(a==="start"){
+    if(tRun){ tRun=false; clearInterval(tInt); }
+    else{
+      if(tLeft<=0) tLeft=T_TOTAL;
+      tEnd=Date.now()+tLeft*1000; tRun=true; clearInterval(tInt); tInt=setInterval(tTick,250);
+    }
+  }else{ tRun=false; clearInterval(tInt); tLeft=T_TOTAL; }
+  tPaint();
+}
+function countdownHTML(){
+  if(!examDate) return `<p class="muted">Выбери дату ОГЭ, и я посчитаю дни 💌</p>`;
+  const d=new Date(examDate+"T00:00:00"); if(isNaN(d)) return `<p class="muted">Выбери дату ОГЭ 💌</p>`;
+  const now=new Date(); now.setHours(0,0,0,0);
+  const days=Math.round((d-now)/86400000);
+  if(days<0) return `<p class="muted">Эта дата уже прошла. Выбери новую 💌</p>`;
+  if(days===0) return `<div class="big-num">Сегодня!</div><p>Ты готова. Я в тебя верю 💖</p>`;
+  return `<div class="big-num">${days}</div><p>${plural(days,"день","дня","дней")} до ОГЭ</p>`;
+}
+function homeView(){
+  const total=allTopics().length, dc=doneCount(), pct=total?Math.round(dc/total*100):0;
+  const stickerCount=Math.floor(dc/TOPICS_PER_STICKER);
+  return `
+  <section class="hero">
+    <span class="deco d1">🌸</span><span class="deco d2">☁️</span><span class="deco d3">✨</span><span class="deco d4">🎀</span>
+    <h1>Привет, любимая Лизочка! <span class="beat">💖</span></h1>
+    <p>Ты справишься! Идём к ОГЭ маленькими шагами.</p>
+  </section>
+  <section class="card support">
+    <div class="phrase" id="phrase">${nextPhrase()}</div>
+    <button class="btn pulse" data-support>Мне нужна поддержка 🥺</button>
+  </section>
+  <div class="two">
+    <section class="card">
+      <span class="eyebrow">Мой прогресс</span>
+      <div class="big-num">${pct}%</div>
+      <div class="bar"><i id="pbar" style="width:0"></i></div>
+      <p class="muted">Пройдено ${dc} из ${total} тем</p>
+      <p class="muted">${statsLine()}</p>
+    </section>
+    <section class="card">
+      <span class="eyebrow">До экзамена</span>
+      <div id="cd">${countdownHTML()}</div>
+      <label class="muted" for="exdate">Дата ОГЭ</label>
+      <input type="date" id="exdate" value="${examDate||""}">
+    </section>
+  </div>
+  ${dailyHTML()}
+  ${trainCardHTML()}
+  ${helperCardHTML()}
+  <section class="card">
+    <h3>Подготовка к ОГЭ 🎓</h3>
+    <div class="subjects">
+      ${SUBJECTS.map(s=>{
+        const n=s.topics.filter(t=>done[t.id]).length, m=s.topics.length;
+        return `<a class="subj" href="#${s.id}">
+          <span class="em">${s.emoji}</span><h3>${s.name}</h3>
+          <span class="muted">${s.blurb}</span>
+          <div class="bar thin"><i style="width:${Math.round(n/m*100)}%;animation:none"></i></div>
+          <span class="muted">${n} из ${m} тем</span></a>`;
+      }).join("")}
+    </div>
+  </section>
+  ${lessonsCardHTML()}
+  <section class="card">
+    <h3>Мои наградки</h3>
+    <p class="muted">Новая наградка открывается за каждые ${TOPICS_PER_STICKER} пройденные темы.</p>
+    <div class="stickers">
+      ${STICKERS.map((s,i)=> i<stickerCount?`<div class="sticker on" title="${s[1]}">${s[0]}</div>`:`<div class="sticker off" title="Пока закрыто">🔒</div>`).join("")}
+    </div>
+  </section>
+  <section class="card">
+    <h3>Перерыв 🍵</h3>
+    <p class="muted">Отдохни 10 минут, выпей воды и потянись. Мозгу это тоже нужно.</p>
+    <div class="timer-num" id="tdisp">10:00</div>
+    <div class="bar thin"><i id="tbar" style="width:0;animation:none"></i></div>
+    <div class="row">
+      <button class="btn" id="tstart" data-timer="start">Начать перерыв</button>
+      <button class="btn line" data-timer="reset">Сбросить</button>
+    </div>
+  </section>
+  <section class="card msg-card">
+    <button class="btn soft" data-msg>Сообщение от меня 💌</button>
+    <div id="msgbox">${msgOpen?`<p class="msg-text">${MY_MESSAGE}</p>`:""}</div>
+  </section>
+  <p class="foot">Сделано с любовью для любимой Лизочки 💗</p>`;
+}
+function subjectView(s){
+  const n=s.topics.filter(t=>done[t.id]).length;
+  return `
+  <a class="back" href="#">← Домой</a>
+  <header class="thead"><div class="big">${s.emoji}</div><h2>${s.name}</h2>
+    <p class="muted">Пройдено ${n} из ${s.topics.length} тем</p></header>
+  ${s.exam?`<section class="card"><h3>Как проходит экзамен</h3><ul class="facts">${s.exam.map(x=>`<li>${x}</li>`).join("")}</ul></section>`:(s.intro?`<section class="card"><p>${s.intro}</p></section>`:"")}
+  <div class="topic-list">
+    ${s.topics.map(t=>`<a class="topic-row" href="#${t.id}">
+      <span class="em">${t.emoji}</span>
+      <span class="tx"><b>${t.title}</b><span class="s">${t.short}</span></span>
+      <span class="tick ${done[t.id]?"on":""}">✓</span></a>`).join("")}
+  </div>`;
+}
+function quizHTML(t){
+  const st=quizState[t.id]||(quizState[t.id]={i:0,score:0,picked:null});
+  const n=t.quiz.length;
+  if(st.i>=n){
+    const msg = st.score===n ? "Идеально! Ты умничка! 🏆" : st.score>=n-1 ? "Очень хорошо! Ещё чуть-чуть 💕" : "Ничего страшного, это только начало. Перечитай тему и попробуй ещё раз 🌷";
+    return `<div class="result"><div class="score">${st.score} из ${n}</div><p>${msg}</p><button class="btn" data-retry>Пройти ещё раз</button></div>`;
+  }
+  const q=t.quiz[st.i], answered=st.picked!==null;
+  return `<span class="qstep">Вопрос ${st.i+1} из ${n}</span>
+    <div class="qtext">${q.q}</div>
+    <div class="opts">${q.o.map((o,k)=>{
+      let cls="opt"; if(answered){ if(k===q.a) cls+=" ok"; else if(k===st.picked) cls+=" bad"; }
+      return `<button class="${cls}" data-opt="${k}" ${answered?"disabled":""}>${o}</button>`;
+    }).join("")}</div>
+    ${answered?`<div class="fb ${st.picked===q.a?"ok":"bad"}">${st.picked===q.a?nm(pick(PRAISE)):pick(SOFT)+" Правильный ответ: "+q.o[q.a]}</div>
+      <button class="btn" data-next>${st.i+1>=n?"Смотреть результат":"Дальше"}</button>`:""}`;
+}
+function topicView(s,t){
+  const isDone=!!done[t.id], ex=t.examples||[], pr=t.practice||[], mi=t.mistakes||[];
+  return `
+  <a class="back" href="#${s.id}">← ${s.name}</a>
+  <header class="thead"><div class="big">${t.emoji}</div><h2>${t.title}</h2><p class="muted">${t.short}</p></header>
+  <section class="card"><span class="eyebrow">Коротко и просто</span><p>${t.explain}</p></section>
+  <section class="card rule"><span class="eyebrow">Запомни</span>${t.rule}</section>
+  ${ex.length?`<section class="card"><span class="eyebrow">Разберём вместе</span>${ex.map(e=>`<div class="ex"><div class="q">${e.q}</div><ol>${e.steps.map(x=>`<li>${x}</li>`).join("")}</ol></div>`).join("")}</section>`:""}
+  ${pr.length?`<section class="card"><span class="eyebrow">Попробуй сама</span>${pr.map(p=>`<details class="ans"><summary>${p.q}</summary><div class="a">${p.a}</div></details>`).join("")}</section>`:""}
+  ${mi.length?`<section class="card warn"><span class="eyebrow">Частые ошибки</span><ul>${mi.map(m=>`<li>${m}</li>`).join("")}</ul></section>`:""}
+  ${t.hack?`<section class="card hack"><span class="eyebrow">Лайфхак 💡</span><p>${t.hack}</p></section>`:""}
+  <section class="card"><span class="eyebrow">Мини-тест</span><div id="quiz" class="opts" style="gap:12px">${quizHTML(t)}</div></section>
+  <button class="btn done-btn ${isDone?"soft":"pulse"}" data-done="${t.id}">${isDone?"Тема пройдена ✓ (нажми, чтобы снять)":(s.lesson?"Я поняла урок 💖":"Я поняла эту тему 💖")}</button>`;
+}
+let route = (function(){ try{ return decodeURIComponent((location.hash||"").replace(/^#/,"")); }catch(e){ return ""; } })();
+function go(h){ route=h; try{ location.hash=h; }catch(e){} render(); }
+function findRoute(){
+  const h=route;
+  if(!h) return {view:"home"};
+  if(h==="train") return {view:"train"};
+  if(h==="cards") return {view:"cards"};
+  if(h==="cheat") return {view:"cheat"};
+  if(h==="chat") return {view:"chat"};
+  if(h==="review") return {view:"review"};
+  if(/^t-/.test(h)) return {view:"run",key:h};
+  const s=ALL_SUBJECTS.find(x=>x.id===h); if(s) return {view:"subject",s};
+  for(const sub of ALL_SUBJECTS){ const t=sub.topics.find(x=>x.id===h); if(t) return {view:"topic",s:sub,t}; }
+  return {view:"home"};
+}
+let lastKey="";
+function render(scrollTop){
+  const r=findRoute(), app=$("app");
+  if(r.view!=="run") session=null; else if(!session||session.key!==r.key) session=makeSession(r.key);
+  if(r.view!=="cards") cardsS=null; else if(!cardsS) cardsS=makeCards();
+  app.innerHTML = viewHTML(r);
+  if(r.view==="chat"){ paintChat(); chatStatus(); chatInit(); }
+  if(r.view==="home"){
+    tPaint();
+    requestAnimationFrame(()=>{ const b=$("pbar"); if(b){ const total=allTopics().length; b.style.width=(total?Math.round(doneCount()/total*100):0)+"%"; } });
+  }
+  const key=r.view+(r.t?r.t.id:r.s?r.s.id:(r.key||""));
+  if(scrollTop!==false && key!==lastKey) window.scrollTo(0,0);
+  lastKey=key;
+}
+window.addEventListener("hashchange",()=>{
+  let h=""; try{ h=decodeURIComponent((location.hash||"").replace(/^#/,"")); }catch(e){}
+  if(h!==route){ route=h; render(); }
+});
+window.addEventListener("error",ev=>{
+  try{
+    const b=document.createElement("div");
+    b.style.cssText="position:fixed;left:8px;right:8px;top:8px;z-index:99;background:#ffe0e8;color:#7a1d3a;padding:10px;border-radius:12px;font:700 13px sans-serif";
+    b.textContent="Ошибка: "+(ev.message||"")+" (строка "+(ev.lineno||"?")+")";
+    document.body.appendChild(b);
+  }catch(_){}
+});
+document.addEventListener("click",e=>{
+  const link=e.target.closest("a[href^='#']");
+  if(link){
+    e.preventDefault();
+    let h=link.getAttribute("href").slice(1);
+    try{ h=decodeURIComponent(h); }catch(_){}
+    go(h);
+    return;
+  }
+  const t=e.target.closest("[data-support],[data-done],[data-opt],[data-next],[data-retry],[data-timer],[data-msg],[data-ropt],[data-rnext],[data-rretry],[data-flip],[data-know],[data-again],[data-cardsreset],[data-goal],[data-chatsend],[data-chatchip],[data-star],[data-rvcopy]");
+  if(!t) return;
+  if(t.hasAttribute("data-support")){
+    const p=$("phrase"); p.textContent=nextPhrase(); p.classList.remove("swap"); void p.offsetWidth; p.classList.add("swap");
+    burst(e.clientX,e.clientY,12);
+  }
+  else if(t.hasAttribute("data-done")){
+    const id=t.getAttribute("data-done"); const wasDone=!!done[id];
+    if(wasDone) delete done[id]; else done[id]=true;
+    LS.set("liza_done",done);
+    const count=Math.floor(doneCount()/TOPICS_PER_STICKER);
+    render(false);
+    if(!wasDone){
+      burst(e.clientX,e.clientY,14,["🎉","💖","✨","🌸","🎀"]);
+      if(count>unlocked){
+        const st=STICKERS[(count-1)%STICKERS.length];
+        toast(`<span class="st">${st[0]}</span>Новая наградка: ${st[1]}! Ты такая молодец 💖`);
+      } else toast("Тема пройдена! Ты умница 💖");
+    }
+    unlocked=count;
+  }
+  else if(t.hasAttribute("data-opt")){
+    const r=findRoute(); if(r.view!=="topic") return;
+    const st=quizState[r.t.id]; if(!st||st.picked!==null) return;
+    const k=Number(t.getAttribute("data-opt")); st.picked=k;
+    const ok=k===r.t.quiz[st.i].a; if(ok) st.score++;
+    if(!r.s.lesson) recordAnswer(r.t.id+"#"+st.i,ok);
+    $("quiz").innerHTML=quizHTML(r.t);
+    if(ok){ const b=$("quiz").querySelector(".opt.ok"); if(b) confettiAt(b); }
+  }
+  else if(t.hasAttribute("data-next")){
+    const r=findRoute(); if(r.view!=="topic") return;
+    const st=quizState[r.t.id]; st.i++; st.picked=null;
+    $("quiz").innerHTML=quizHTML(r.t);
+    if(st.i>=r.t.quiz.length && st.score===r.t.quiz.length) burst(innerWidth/2,innerHeight/2,20,["🏆","💖","✨","🎉","🌸"]);
+  }
+  else if(t.hasAttribute("data-retry")){
+    const r=findRoute(); if(r.view!=="topic") return;
+    quizState[r.t.id]={i:0,score:0,picked:null}; $("quiz").innerHTML=quizHTML(r.t);
+  }
+  else if(t.hasAttribute("data-ropt")){
+    if(!session||session.picked!==null) return;
+    const S=session, q=S.qs[S.i], k=Number(t.getAttribute("data-ropt"));
+    S.picked=k; const ok=k===q.a;
+    if(ok) S.score++; else S.missed.push(q);
+    recordAnswer(q.id,ok);
+    $("run").innerHTML=runInner();
+    if(ok){ const b=$("run").querySelector(".opt.ok"); if(b) confettiAt(b); }
+  }
+  else if(t.hasAttribute("data-rnext")){
+    if(!session) return;
+    session.i++; session.picked=null;
+    $("run").innerHTML=runInner();
+    if(session.i>=session.qs.length && session.score===session.qs.length) burst(innerWidth/2,innerHeight/2,20,["🏆","💖","✨","🎉","🌸"]);
+  }
+  else if(t.hasAttribute("data-rretry")){
+    const r=findRoute(); session=makeSession(r.key); render(false);
+  }
+  else if(t.hasAttribute("data-flip")){
+    if(!cardsS) return; cardsS.flipped=!cardsS.flipped; $("cardbox").innerHTML=cardInner();
+  }
+  else if(t.hasAttribute("data-know")){
+    if(!cardsS) return; cardsS.deck.shift(); cardsS.known++; cardsS.flipped=false;
+    $("cardbox").innerHTML=cardInner();
+    burst(e.clientX,e.clientY,8);
+  }
+  else if(t.hasAttribute("data-again")){
+    if(!cardsS) return; cardsS.deck.push(cardsS.deck.shift()); cardsS.flipped=false; $("cardbox").innerHTML=cardInner();
+  }
+  else if(t.hasAttribute("data-cardsreset")){ cardsS=makeCards(); render(false); }
+  else if(t.hasAttribute("data-goal")){
+    const i=Number(t.getAttribute("data-goal")), g=getGoals();
+    g.c[i]=!g.c[i]; LS.set("liza_goals",g); render(false);
+    if(g.c[i]) burst(e.clientX,e.clientY,14,["🎉","💖","✨","🌸"]);
+  }
+  else if(t.hasAttribute("data-chatsend")){ chatSend(); }
+  else if(t.hasAttribute("data-chatchip")){ chatSend(t.getAttribute("data-chatchip")); }
+  else if(t.hasAttribute("data-star")){
+    const rv=reviewState(); rv.stars=Number(t.getAttribute("data-star")); LS.set("liza_review",rv);
+    const st=$("stars"); if(st) st.innerHTML=starsHTML(rv.stars);
+    updateRvLink(); burst(e.clientX,e.clientY,10,["💖","✨","🌸"]);
+  }
+  else if(t.hasAttribute("data-rvcopy")){
+    copyText(reviewMsg()).then(ok=>{
+      if(ok) toast("Скопировано! Теперь можно отправить 💌");
+      else { const ta=$("rvtext"); if(ta&&ta.select) ta.select(); toast("Выдели текст и скопируй вручную 🌷"); }
+    });
+  }
+  else if(t.hasAttribute("data-timer")){ timerAction(t.getAttribute("data-timer")); }
+  else if(t.hasAttribute("data-msg")){
+    msgOpen=!msgOpen;
+    $("msgbox").innerHTML = msgOpen?`<p class="msg-text">${MY_MESSAGE}</p>`:"";
+    if(msgOpen) burst(e.clientX,e.clientY,16,["💗","💌","💖","✨"]);
+  }
+});
+document.addEventListener("change",e=>{
+  if(e.target && e.target.id==="exdate"){
+    examDate=e.target.value; LS.set("liza_date",examDate);
+    const c=$("cd"); if(c) c.innerHTML=countdownHTML();
+  }
+});
+document.addEventListener("input",e=>{
+  if(e.target && e.target.id==="rvtext"){ const rv=reviewState(); rv.text=e.target.value; LS.set("liza_review",rv); updateRvLink(); }
+});
+document.addEventListener("keydown",e=>{
+  if(e.target && e.target.id==="chatin" && e.key==="Enter" && !e.shiftKey){ e.preventDefault(); chatSend(); }
+});
+initHearts();
+initStreak();
+render();
+</script>
+</body></html>
